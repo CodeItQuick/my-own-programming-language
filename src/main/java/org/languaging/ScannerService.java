@@ -21,6 +21,17 @@ public class ScannerService {
         return tokens;
     }
 
+    public void addEOFToken() {
+        tokens.add(new Token(EOF, "", null, line));
+    }
+
+    public boolean isAtEnd() {
+        if (current < source.length()) {
+            start = current;
+        }
+        return current >= source.length();
+    }
+
     protected void scanToken() {
         char c = advance();
         switch (c) {
@@ -52,7 +63,6 @@ public class ScannerService {
                 break;
         }
     }
-
     private boolean match(char expected) {
         if (isAtEnd()) return false;
         if (source.charAt(current) != expected) return false;
@@ -64,6 +74,7 @@ public class ScannerService {
     private char advance() {
         return source.charAt(current++);
     }
+
     private void addToken(TokenType type) {
         addToken(type, null);
     }
@@ -71,16 +82,5 @@ public class ScannerService {
     private void addToken(TokenType type, Object literal) {
         String text = source.substring(start, current);
         tokens.add(new Token(type, text, literal, line));
-    }
-
-    public boolean isAtEnd() {
-        if (current < source.length()) {
-            start = current;
-        }
-        return current >= source.length();
-    }
-
-    public void addEOFToken() {
-        tokens.add(new Token(EOF, "", null, line));
     }
 }

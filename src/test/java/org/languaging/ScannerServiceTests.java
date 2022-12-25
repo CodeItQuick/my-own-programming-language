@@ -32,4 +32,16 @@ class ScannerServiceTests {
                         List.of("PLUS + null", "EOF  null")
         );
     }
+    @Test
+    void whenStringIsAddedThenTokensCanParse() {
+        ScannerService scannerService = new ScannerService("\"text in here\"");
+        scannerService.scanToken();
+
+        List<Token> tokens = scannerService.retrieveTokens();
+        List<String> tokensStringList = tokens.stream().map(
+                x -> x.toString()).collect(Collectors.toList());
+        assertThat(tokensStringList).isEqualTo(
+                        List.of("STRING \" ")
+        );
+    }
 }

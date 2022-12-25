@@ -86,8 +86,6 @@ public class ScannerService {
                 } else {
                     Lox.error(line, "Unexpected character.");
                 }
-
-                Lox.error(line, "Unexpected character.");
                 break;
         }
     }
@@ -136,7 +134,7 @@ public class ScannerService {
         return c >= '0' && c <= '9';
     }
 
-    private void number() {
+    public void number() {
         while (isDigit(peek())) advance();
 
         // Look for a fractional part.
@@ -148,7 +146,7 @@ public class ScannerService {
         }
 
         addToken(NUMBER,
-                Double.parseDouble(source.substring(start, current)));
+                Double.parseDouble(source.substring(current - 1, current)));
     }
     private char peekNext() {
         if (current + 1 >= source.length()) return '\0';

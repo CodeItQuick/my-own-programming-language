@@ -6,21 +6,19 @@ abstract class Expr {
     abstract <R> R accept(Visitor<R> visitor);
 
     static class Binary extends Expr {
+        final Expr left;
+        final Token operator;
+        final Expr right;
 
         @Override
         <R> R accept(Visitor<R> visitor) {
             return visitor.visitBinaryExpr(this);
         }
-
         Binary(Expr left, Token operator, Expr right) {
             this.left = left;
             this.operator = operator;
             this.right = right;
         }
-        final Expr left;
-
-        final Token operator;
-        final Expr right;
 
     }
     interface Visitor<R> {

@@ -7,8 +7,8 @@ import static org.languaging.TokenType.*;
 
 public class Parser {
     private static class ParseError extends RuntimeException {
-    }
 
+    }
     private final List<Token> tokens;
     private int current = 0;
 
@@ -16,11 +16,20 @@ public class Parser {
         this.tokens = tokens;
     }
 
+    Expr parse() {
+        try {
+            return expression();
+        } catch (ParseError error) {
+            return null;
+        }
+//         }
+    }
+
     private Expr expression() {
         return equality();
     }
 
-    private Expr equality() {
+    public Expr equality() {
         Expr expr = comparison();
 
         while (match(BANG_EQUAL, EQUAL_EQUAL)) {
@@ -65,7 +74,7 @@ public class Parser {
         return tokens.get(current - 1);
     }
 
-    private Expr comparison() {
+    public Expr comparison() {
         Expr expr = term();
 
         while (match(GREATER, GREATER_EQUAL, LESS, LESS_EQUAL)) {
@@ -77,7 +86,7 @@ public class Parser {
         return expr;
     }
 
-    private Expr term() {
+    public Expr term() {
         Expr expr = factor();
 
         while (match(MINUS, PLUS)) {
@@ -89,7 +98,7 @@ public class Parser {
         return expr;
     }
 
-    private Expr factor() {
+    public Expr factor() {
         Expr expr = unary();
 
         while (match(SLASH, STAR)) {
@@ -110,7 +119,6 @@ public class Parser {
 
         return primary();
     }
-
     private Expr primary() {
         if (match(FALSE)) return new Expr.Literal(false);
         if (match(TRUE)) return new Expr.Literal(true);
@@ -127,14 +135,6 @@ public class Parser {
         }
         throw error(peek(), "Expect expression.");
 
-    }
-    Expr parse() {
-        try {
-            return expression();
-        } catch (ParseError error) {
-            return null;
-        }
-//         }
     }
 
     private Token consume(TokenType type, String message) {
@@ -170,7 +170,6 @@ public class Parser {
             advance();
         }
     }
-
 
 }
 

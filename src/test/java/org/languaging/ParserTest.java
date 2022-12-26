@@ -11,6 +11,17 @@ import static org.languaging.TokenType.*;
 class ParserTest {
 
     @Test
+    public void GivenTrueCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(TRUE,null,"true",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+    }
+    @Test
     public void GivenEqualityCanParseExpression() {
         Parser parser = new Parser(List.of(
                 new Token(NUMBER,null,"1",1),
@@ -22,7 +33,6 @@ class ParserTest {
         Expr expression = parser.parse();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
-
     }
     @Test
     public void GivenEqualityOperatorCanParseExpression() {
@@ -30,7 +40,21 @@ class ParserTest {
                 new Token(TRUE,null,"true",1),
                 new Token(EQUAL_EQUAL,null,"==",1),
                 new Token(FALSE,null,"false",1),
-                new Token(EOF,null,null,1)
+                new Token(EOF,null,"EOF",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+
+    }
+    @Test
+    public void GivenEqualityOperatorWithNilCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NIL,null,"nil",1),
+                new Token(EQUAL_EQUAL,null,"==",1),
+                new Token(FALSE,null,"false",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.parse();
@@ -71,7 +95,7 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(MINUS,null,"-",1),
                 new Token(NUMBER,null,"1",1),
-                new Token(EOF,null,null,1)
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.parse();

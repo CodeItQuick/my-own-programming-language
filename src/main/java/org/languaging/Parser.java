@@ -2,7 +2,6 @@ package org.languaging;
 
 import java.util.List;
 
-import static org.languaging.Lox.report;
 import static org.languaging.TokenType.*;
 
 public class Parser {
@@ -20,6 +19,7 @@ public class Parser {
         try {
             return expression();
         } catch (ParseError error) {
+            System.out.println(error.getMessage());
             return null;
         }
 //         }
@@ -120,12 +120,18 @@ public class Parser {
         return primary();
     }
     private Expr primary() {
-        if (match(FALSE)) return new Expr.Literal(false);
-        if (match(TRUE)) return new Expr.Literal(true);
-        if (match(NIL)) return new Expr.Literal(null);
-
-        if (match(NUMBER, STRING)) {
-            return new Expr.Literal(previous().literal);
+        List<Consumable> subExpressions = List.of(
+                new SubExpressionLiteralEquality(
+                tokens.get(current)),
+                new SubExpressionLiteralNumberString(
+                tokens.get(current))
+        );
+        SubExpressionLiteralProcessing subExpressionLiteralProcessing =
+                new SubExpressionLiteralProcessing(subExpressions);
+        Expr.Literal literal = subExpressionLiteralProcessing.process();
+        if (literal != null) {
+            advance();
+            return literal;
         }
 
         if (match(LEFT_PAREN)) {

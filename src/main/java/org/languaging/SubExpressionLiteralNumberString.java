@@ -11,7 +11,7 @@ public class SubExpressionLiteralNumberString implements Consumable {
         this.tokens = tokens;
     }
 
-    public Expr.Literal process() {
+    public Expr process() {
         return consumeNumberLiteral();
     }
 

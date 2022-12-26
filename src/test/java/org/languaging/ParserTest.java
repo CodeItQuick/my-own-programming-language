@@ -103,4 +103,31 @@ class ParserTest {
         assertThat(expression).isInstanceOf(Expr.Unary.class);
 
     }
+    @Test
+    public void GivenParenthesisOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(LEFT_PAREN,null,"(",1),
+                new Token(NUMBER,null,"1",1),
+                new Token(MINUS,null,"-",1),
+                new Token(NUMBER,null,"1",1),
+                new Token(RIGHT_PAREN,null,")",1),
+                new Token(EOF,null,"EOF",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Grouping.class);
+
+    }
+    @Test
+    public void GivenNumberOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"1",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+
+    }
 }

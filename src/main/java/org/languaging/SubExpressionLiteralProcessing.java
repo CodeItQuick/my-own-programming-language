@@ -10,9 +10,9 @@ public class SubExpressionLiteralProcessing {
         this.subExpressions = subExpressions;
     }
 
-    public Expr.Literal process() {
+    public Expr process() {
         for (Consumable subExpressionLiteral: subExpressions) {
-            Expr.Literal literal = subExpressionLiteral.process();
+            Expr literal = subExpressionLiteral.process();
             if (literal != null) {
                 return literal;
             }

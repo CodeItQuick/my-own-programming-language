@@ -25,7 +25,7 @@ public class Parser {
 //         }
     }
 
-    private Expr expression() {
+    public Expr expression() {
         return equality();
     }
 
@@ -124,13 +124,17 @@ public class Parser {
                 new SubExpressionLiteralEquality(
                 tokens.get(current)),
                 new SubExpressionLiteralNumberString(
-                tokens.get(current))
+                tokens.get(current))//,
+//                new SubExpressionLiteralParenthesis(
+//                tokens)
         );
         SubExpressionLiteralProcessing subExpressionLiteralProcessing =
                 new SubExpressionLiteralProcessing(subExpressions);
-        Expr.Literal literal = subExpressionLiteralProcessing.process();
+        Expr literal = subExpressionLiteralProcessing.process();
         if (literal != null) {
-            advance();
+            if (current < tokens.size() - 1) {
+                advance();
+            }
             return literal;
         }
 
@@ -143,7 +147,7 @@ public class Parser {
 
     }
 
-    private Token consume(TokenType type, String message) {
+    public Token consume(TokenType type, String message) {
         if (check(type)) return advance();
 
         throw error(peek(), message);

@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="literalparenthesis class can parse parenthesis terms">
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="remove dead code">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +71,8 @@
       <recent name="org.languaging" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SubExpressionLiteralParenthesisTest">
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.org.languaging in FirstProgrammingLanguage">
+    <configuration name="ParserTest.GivenEqualityCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -77,43 +82,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SubExpressionLiteralParenthesisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FirstProgrammingLanguage" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.languaging.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.SubExpressionLiteralParenthesisTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SubExpressionLiteralParenthesisTest.GivenParenthesisCanParseTerms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FirstProgrammingLanguage" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.languaging.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.SubExpressionLiteralParenthesisTest" />
-      <option name="METHOD_NAME" value="GivenParenthesisCanParseTerms" />
+      <option name="METHOD_NAME" value="GivenEqualityCanParseExpression" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubExpressionLiteralParenthesisTest.GivenParenthesisWithLeftDataCanParseTerms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParserTest.GivenEqualityOperatorCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -122,8 +97,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.SubExpressionLiteralParenthesisTest" />
-      <option name="METHOD_NAME" value="GivenParenthesisWithLeftDataCanParseTerms" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
+      <option name="METHOD_NAME" value="GivenEqualityOperatorCanParseExpression" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.GivenEqualityOperatorWithNilCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FirstProgrammingLanguage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.languaging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.languaging" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
+      <option name="METHOD_NAME" value="GivenEqualityOperatorWithNilCanParseExpression" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.GivenParenthesisOperatorCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FirstProgrammingLanguage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.languaging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.languaging" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
+      <option name="METHOD_NAME" value="GivenParenthesisOperatorCanParseExpression" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,19 +151,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ParserTest" />
-      <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest" />
-      <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest.GivenParenthesisCanParseTerms" />
-      <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest.GivenParenthesisWithLeftDataCanParseTerms" />
+      <item itemvalue="JUnit.ParserTest.GivenEqualityCanParseExpression" />
+      <item itemvalue="JUnit.ParserTest.GivenEqualityOperatorCanParseExpression" />
+      <item itemvalue="JUnit.ParserTest.GivenEqualityOperatorWithNilCanParseExpression" />
+      <item itemvalue="JUnit.ParserTest.GivenParenthesisOperatorCanParseExpression" />
       <item itemvalue="JUnit.org.languaging in FirstProgrammingLanguage" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest" />
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest.GivenParenthesisWithLeftDataCanParseTerms" />
         <item itemvalue="JUnit.org.languaging in FirstProgrammingLanguage" />
-        <item itemvalue="JUnit.SubExpressionLiteralParenthesisTest.GivenParenthesisCanParseTerms" />
+        <item itemvalue="JUnit.ParserTest.GivenParenthesisOperatorCanParseExpression" />
+        <item itemvalue="JUnit.ParserTest.GivenEqualityOperatorWithNilCanParseExpression" />
+        <item itemvalue="JUnit.ParserTest.GivenEqualityOperatorCanParseExpression" />
+        <item itemvalue="JUnit.ParserTest.GivenEqualityCanParseExpression" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
-      <workItem from="1671800453607" duration="48814000" />
+      <workItem from="1671800453607" duration="54812000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -212,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672077172175</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="remove dead code">
+      <created>1672077247520</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672077247520</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +250,8 @@
     <MESSAGE value="Added tests, can parse simple comparison statements" />
     <MESSAGE value="uses chain of responsibility pattern" />
     <MESSAGE value="literalparenthesis class can parse parenthesis terms" />
-    <option name="LAST_COMMIT_MESSAGE" value="literalparenthesis class can parse parenthesis terms" />
+    <MESSAGE value="remove dead code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove dead code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,23 +283,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Parser.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="57" />
+          <line>96</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Parser.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="58" />
+          <line>28</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="59" />
+          <line>18</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="60" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

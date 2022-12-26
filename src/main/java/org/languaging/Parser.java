@@ -1,6 +1,7 @@
 package org.languaging;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.languaging.TokenType.*;
 
@@ -77,6 +78,7 @@ public class Parser {
     public Expr comparison() {
         Expr expr = term();
 
+        boolean isMatched = false;
         while (match(GREATER, GREATER_EQUAL, LESS, LESS_EQUAL)) {
             Token operator = previous();
             Expr right = term();
@@ -120,13 +122,17 @@ public class Parser {
         return primary();
     }
     private Expr primary() {
+        List<Token> groupingTokens = tokens.stream()
+                .skip(current)
+                .collect(Collectors.toList());
         List<Consumable> subExpressions = List.of(
                 new SubExpressionLiteralEquality(
-                tokens.get(current)),
+                List.of(tokens.get(current))),
                 new SubExpressionLiteralNumberString(
-                tokens.get(current))//,
-//                new SubExpressionLiteralParenthesis(
-//                tokens)
+                        List.of(tokens.get(current))),
+                new SubExpressionLiteralParenthesis(
+                        groupingTokens
+                )
         );
         SubExpressionLiteralProcessing subExpressionLiteralProcessing =
                 new SubExpressionLiteralProcessing(subExpressions);
@@ -138,11 +144,6 @@ public class Parser {
             return literal;
         }
 
-        if (match(LEFT_PAREN)) {
-            Expr expr = expression();
-            consume(RIGHT_PAREN, "Expect ')' after expression.");
-            return new Expr.Grouping(expr);
-        }
         throw error(peek(), "Expect expression.");
 
     }

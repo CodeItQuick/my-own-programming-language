@@ -1,15 +1,18 @@
 package org.languaging;
 
+import java.util.List;
+
 import static org.languaging.TokenType.*;
 
 public class SubExpressionLiteralEquality implements Consumable {
-    private final Token[] tokens;
+    private final List<Token> tokens;
     private int current = 0;
     private Expr.Literal expr = null;
 
-    public SubExpressionLiteralEquality(Token... tokens) {
+    public SubExpressionLiteralEquality(List<Token> tokens) {
         this.tokens = tokens;
     }
+
 
     public Expr process() {
         return consumeEqualityLiteral();

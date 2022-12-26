@@ -1,13 +1,15 @@
 package org.languaging;
 
+import java.util.List;
+
 import static org.languaging.TokenType.*;
 
 public class SubExpressionLiteralNumberString implements Consumable {
-    private final Token[] tokens;
+    private final List<Token> tokens;
     private int current = 0;
     private Expr.Literal expr = null;
 
-    public SubExpressionLiteralNumberString(Token... tokens) {
+    public SubExpressionLiteralNumberString(List<Token> tokens) {
         this.tokens = tokens;
     }
 
@@ -17,7 +19,7 @@ public class SubExpressionLiteralNumberString implements Consumable {
 
     public Expr.Literal consumeNumberLiteral() {
         if(check(NUMBER, STRING)) {
-            consume(tokens[tokens.length - 1].literal);
+            consume(tokens.get(tokens.size() - 1).literal);
             return expr;
         }
         return null;
@@ -41,9 +43,7 @@ public class SubExpressionLiteralNumberString implements Consumable {
         boolean matches = false;
         for (TokenType tokenType: type) {
             if (tokenType == null) return false;
-            for (Token token: tokens) {
-                if (tokenType == token.type) matches = true;
-            }
+            if (tokenType == tokens.get(current).type) matches = true;
         }
         return matches;
     }

@@ -24,10 +24,6 @@ public class SubExpressionLiteralParenthesis implements Consumable {
                     .skip(start > 0 ? start : 0)
                     .takeWhile(x -> x.type != RIGHT_PAREN)
                     .collect(Collectors.toList());
-            boolean isRightParenPresent = beforeRightParen.size() == tokens.size();
-            if (isRightParenPresent) {
-                return null;
-            }
             Parser parser1 = new Parser(beforeRightParen);
             Expr expr1 = parser1.parse();
             return new Expr.Grouping(expr1);

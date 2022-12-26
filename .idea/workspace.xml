@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="remove dead code">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="improve tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +171,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
-      <workItem from="1671800453607" duration="54812000" />
+      <workItem from="1671800453607" duration="55036000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -226,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672077247520</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="improve tests">
+      <created>1672083331711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672083331711</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +254,8 @@
     <MESSAGE value="uses chain of responsibility pattern" />
     <MESSAGE value="literalparenthesis class can parse parenthesis terms" />
     <MESSAGE value="remove dead code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove dead code" />
+    <MESSAGE value="improve tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,7 +312,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java</url>
-          <line>16</line>
+          <line>28</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>

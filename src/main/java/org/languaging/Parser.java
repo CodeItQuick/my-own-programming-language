@@ -122,20 +122,8 @@ public class Parser {
         return primary();
     }
     private Expr primary() {
-        List<Token> groupingTokens = tokens.stream()
-                .skip(current)
-                .collect(Collectors.toList());
-        List<Consumable> subExpressions = List.of(
-                new SubExpressionLiteralEquality(
-                List.of(tokens.get(current))),
-                new SubExpressionLiteralNumberString(
-                        List.of(tokens.get(current))),
-                new SubExpressionLiteralParenthesis(
-                        groupingTokens
-                )
-        );
         SubExpressionLiteralProcessing subExpressionLiteralProcessing =
-                new SubExpressionLiteralProcessing(subExpressions);
+                new SubExpressionLiteralProcessing(tokens, current);
         Expr literal = subExpressionLiteralProcessing.process();
         if (literal != null) {
             if (current < tokens.size() - 1) {
@@ -146,12 +134,6 @@ public class Parser {
 
         throw error(peek(), "Expect expression.");
 
-    }
-
-    public Token consume(TokenType type, String message) {
-        if (check(type)) return advance();
-
-        throw error(peek(), message);
     }
 
     private ParseError error(Token token, String message) {

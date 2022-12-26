@@ -19,14 +19,8 @@ class SubExpressionLiteralProcessingTest {
                 new Token(NUMBER, null, "1", 1),
                 new Token(RIGHT_PAREN, null, ")", 1)
         );
-        Consumable parenthesisProcessor = new SubExpressionLiteralParenthesis(tokens);
-        Consumable numberProcessor = new SubExpressionLiteralNumberString(tokens);
-        Consumable equalityProcessor = new SubExpressionLiteralEquality(tokens);
         SubExpressionLiteralProcessing processor =
-                new SubExpressionLiteralProcessing(
-                        List.of(parenthesisProcessor,
-                        numberProcessor,
-                        equalityProcessor));
+                new SubExpressionLiteralProcessing(tokens, 0);
         Expr process = processor.process();
 
         assertThat(process).isInstanceOf(Expr.class);

@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="uses chain of responsibility pattern">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="literalparenthesis class can parse parenthesis terms">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Consumable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
-      <workItem from="1671800453607" duration="48730000" />
+      <workItem from="1671800453607" duration="48814000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -211,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672063400472</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="literalparenthesis class can parse parenthesis terms">
+      <created>1672077172175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672077172175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +235,8 @@
     <MESSAGE value="Added tests, can parse strings and other things" />
     <MESSAGE value="Added tests, can parse simple comparison statements" />
     <MESSAGE value="uses chain of responsibility pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="uses chain of responsibility pattern" />
+    <MESSAGE value="literalparenthesis class can parse parenthesis terms" />
+    <option name="LAST_COMMIT_MESSAGE" value="literalparenthesis class can parse parenthesis terms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -271,17 +273,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>32</line>
+          <line>26</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>38</line>
+          <line>32</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>37</line>
+          <line>31</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>

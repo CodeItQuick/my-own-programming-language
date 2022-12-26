@@ -1,18 +1,12 @@
 package org.languaging;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.languaging.TokenType.*;
 
 public class SubExpressionLiteralParenthesis implements Consumable {
-    private int current = 0;
-    private Expr.Literal expr = null;
     private List<Token> tokens;
-
-
     public SubExpressionLiteralParenthesis(List<Token> tokens) {
         this.tokens = tokens;
     }
@@ -39,20 +33,6 @@ public class SubExpressionLiteralParenthesis implements Consumable {
             return new Expr.Grouping(expr1);
         }
         return null;
-    }
-
-    public void consume(Object literal) {
-        if (match(NUMBER, STRING)) {
-            expr = new Expr.Literal(literal);
-        }
-    }
-    public boolean match(TokenType... types) {
-        for (TokenType type : types) {
-            if (check(type)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public boolean check(TokenType... type) {

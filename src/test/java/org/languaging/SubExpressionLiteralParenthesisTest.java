@@ -17,7 +17,8 @@ class SubExpressionLiteralParenthesisTest {
                 new Token(RIGHT_PAREN, null, ")", 1)
         );
 
-        SubExpressionLiteralParenthesis expression = new SubExpressionLiteralParenthesis(tokens);
+        SubExpressionLiteralParenthesis expression =
+                new SubExpressionLiteralParenthesis(tokens);
 
         Expr expressionParsed = expression.process();
 

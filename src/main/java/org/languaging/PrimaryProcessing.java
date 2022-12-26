@@ -3,10 +3,10 @@ package org.languaging;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SubExpressionLiteralProcessing {
+public class PrimaryProcessing {
     private List<Consumable> subExpressions;
 
-    public SubExpressionLiteralProcessing(List<Token> tokens, int current) {
+    public PrimaryProcessing(List<Token> tokens, int current) {
 
         List<Token> groupingTokens = tokens.stream()
                 .skip(current)

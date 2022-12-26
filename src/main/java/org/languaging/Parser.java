@@ -1,7 +1,6 @@
 package org.languaging;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.languaging.TokenType.*;
 
@@ -122,9 +121,9 @@ public class Parser {
         return primary();
     }
     private Expr primary() {
-        SubExpressionLiteralProcessing subExpressionLiteralProcessing =
-                new SubExpressionLiteralProcessing(tokens, current);
-        Expr literal = subExpressionLiteralProcessing.process();
+        PrimaryProcessing processing =
+                new PrimaryProcessing(tokens, current);
+        Expr literal = processing.process();
         if (literal != null) {
             if (current < tokens.size() - 1) {
                 advance();

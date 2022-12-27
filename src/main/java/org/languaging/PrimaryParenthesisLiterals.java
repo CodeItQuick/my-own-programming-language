@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 
 import static org.languaging.TokenType.*;
 
-public class SubExpressionLiteralParenthesis implements Consumable {
+public class PrimaryParenthesisLiterals implements Consumable {
     private List<Token> tokens;
-    public SubExpressionLiteralParenthesis(List<Token> tokens) {
+    public PrimaryParenthesisLiterals(List<Token> tokens) {
         this.tokens = tokens;
     }
 

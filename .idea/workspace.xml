@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="use chain of responsibility pattern">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralProcessingTest.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="clean up pattern">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralNumberString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryNumberLiterals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryParenthesisLiterals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +173,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
-      <workItem from="1671800453607" duration="55466000" />
+      <workItem from="1671800453607" duration="56744000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -235,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672083625691</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="clean up pattern">
+      <created>1672084283037</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672084283038</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,33 +272,34 @@
     <MESSAGE value="remove dead code" />
     <MESSAGE value="improve tests" />
     <MESSAGE value="use chain of responsibility pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="use chain of responsibility pattern" />
+    <MESSAGE value="clean up pattern" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up pattern" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java</url>
           <line>42</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java</url>
           <line>43</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java</url>
           <line>45</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java</url>
           <line>18</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralEquality.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryEqualityLiterals.java</url>
           <line>73</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
@@ -303,24 +314,9 @@
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/languaging/SubExpressionLiteralParenthesisTest.java</url>
-          <line>61</line>
+          <line>60</line>
           <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/SubExpressionLiteralParenthesis.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

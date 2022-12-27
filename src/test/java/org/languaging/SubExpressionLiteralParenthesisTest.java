@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.languaging.TokenType.*;
 
 class SubExpressionLiteralParenthesisTest {
@@ -17,8 +16,8 @@ class SubExpressionLiteralParenthesisTest {
                 new Token(RIGHT_PAREN, null, ")", 1)
         );
 
-        SubExpressionLiteralParenthesis expression =
-                new SubExpressionLiteralParenthesis(tokens);
+        PrimaryParenthesisLiterals expression =
+                new PrimaryParenthesisLiterals(tokens);
 
         Expr expressionParsed = expression.process();
 
@@ -36,7 +35,7 @@ class SubExpressionLiteralParenthesisTest {
                 new Token(SEMICOLON, null, ";", 1)
         );
 
-        SubExpressionLiteralParenthesis expression = new SubExpressionLiteralParenthesis(tokens);
+        PrimaryParenthesisLiterals expression = new PrimaryParenthesisLiterals(tokens);
 
         Expr expressionParsed = expression.process();
 
@@ -55,7 +54,7 @@ class SubExpressionLiteralParenthesisTest {
                 new Token(RIGHT_PAREN, null, ")", 1)
         );
 
-        SubExpressionLiteralParenthesis expression = new SubExpressionLiteralParenthesis(tokens);
+        PrimaryParenthesisLiterals expression = new PrimaryParenthesisLiterals(tokens);
 
         Expr expressionParsed = expression.process();
 

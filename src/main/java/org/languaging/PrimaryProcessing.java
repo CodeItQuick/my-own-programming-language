@@ -12,11 +12,11 @@ public class PrimaryProcessing {
                 .skip(current)
                 .collect(Collectors.toList());
         subExpressions = List.of(
-                new SubExpressionLiteralEquality(
+                new PrimaryEqualityLiterals(
                         List.of(tokens.get(current))),
-                new SubExpressionLiteralNumberString(
+                new PrimaryNumberLiterals(
                         List.of(tokens.get(current))),
-                new SubExpressionLiteralParenthesis(
+                new PrimaryParenthesisLiterals(
                         groupingTokens
                 )
         );

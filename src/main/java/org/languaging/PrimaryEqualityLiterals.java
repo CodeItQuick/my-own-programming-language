@@ -4,31 +4,41 @@ import java.util.List;
 
 import static org.languaging.TokenType.*;
 
-public class SubExpressionLiteralNumberString implements Consumable {
+public class PrimaryEqualityLiterals implements Consumable {
     private final List<Token> tokens;
     private int current = 0;
     private Expr.Literal expr = null;
 
-    public SubExpressionLiteralNumberString(List<Token> tokens) {
+    public PrimaryEqualityLiterals(List<Token> tokens) {
         this.tokens = tokens;
     }
 
+
     public Expr process() {
-        return consumeNumberLiteral();
+        return consumeEqualityLiteral();
     }
 
-    public Expr.Literal consumeNumberLiteral() {
-        if(check(NUMBER, STRING)) {
-            consume(tokens.get(tokens.size() - 1).literal);
+    public Expr.Literal consumeEqualityLiteral() {
+
+        if (check(FALSE)) {
+            consume();
+            return expr;
+        }
+        if (check(TRUE)) {
+            consume();
+            return expr;
+        }
+        if (check(NIL)) {
+            consume();
             return expr;
         }
         return null;
     }
+    public void consume() {
+        if (match(FALSE)) expr = new Expr.Literal(false);
+        if (match(TRUE)) expr = new Expr.Literal(true);
+        if (match(NIL)) expr = new Expr.Literal(null);
 
-    public void consume(Object literal) {
-        if (match(NUMBER, STRING)) {
-            expr = new Expr.Literal(literal);
-        }
     }
     public boolean match(TokenType... types) {
         for (TokenType type : types) {
@@ -43,7 +53,9 @@ public class SubExpressionLiteralNumberString implements Consumable {
         boolean matches = false;
         for (TokenType tokenType: type) {
             if (tokenType == null) return false;
-            if (tokenType == tokens.get(current).type) matches = true;
+            for (Token token: tokens) {
+                if (tokenType == token.type) matches = true;
+            }
         }
         return matches;
     }

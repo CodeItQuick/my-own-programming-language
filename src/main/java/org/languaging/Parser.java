@@ -63,39 +63,6 @@ public class Parser {
         return expr;
     }
 
-    private boolean match(TokenType... types) {
-        for (TokenType type : types) {
-            if (check(type)) {
-                advance();
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private boolean check(TokenType type) {
-        if (peek().type == EOF) return false;
-        return peek().type == type;
-    }
-
-    private Token advance() {
-        if (!isAtEnd()) current++;
-        return previous();
-    }
-
-    private boolean isAtEnd() {
-        return peek().type == EOF || peek().type == SEMICOLON;
-    }
-
-    private Token peek() {
-        return tokens.get(current);
-    }
-
-    private Token previous() {
-        return tokens.get(current - 1);
-    }
-
     public Expr comparison() {
         Expr expr = term();
 
@@ -142,6 +109,7 @@ public class Parser {
 
         return primary();
     }
+
     private Expr primary() {
         PrimaryProcessing processing =
                 new PrimaryProcessing(tokens, current);
@@ -155,6 +123,38 @@ public class Parser {
 
         throw error(peek(), "Expect expression.");
 
+    }
+
+    private boolean match(TokenType... types) {
+        for (TokenType type : types) {
+            if (check(type)) {
+                advance();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean check(TokenType type) {
+        if (peek().type == EOF) return false;
+        return peek().type == type;
+    }
+
+    private Token advance() {
+        if (!isAtEnd()) current++;
+        return previous();
+    }
+
+    private boolean isAtEnd() {
+        return peek().type == EOF || peek().type == SEMICOLON;
+    }
+
+    private Token peek() {
+        return tokens.get(current);
+    }
+    private Token previous() {
+        return tokens.get(current - 1);
     }
 
     private ParseError error(Token token, String message) {

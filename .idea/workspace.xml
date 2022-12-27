@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="unary operator added to chain of responsibility pattern">
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="refactor tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryFactorOperatorTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryUnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryUnaryOperator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,19 +38,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_directory_selection": "C:/Users/Owner/IdeaProjects/FirstProgrammingLanguage/src/main/java/org/languaging",
-    "last_opened_file_path": "C:/Users/Owner/IdeaProjects/FirstProgrammingLanguage/src/main/java/org/languaging",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Owner/IdeaProjects/FirstProgrammingLanguage/src/main/java/org/languaging&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/IdeaProjects/FirstProgrammingLanguage/src/main/java/org/languaging&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.languaging" />
@@ -172,7 +174,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.org.generateast.GenerateAst" />
-      <item itemvalue="Application.org.languaging.Lox" />
+      <item itemvalue="Application.Lox" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
       <item itemvalue="JUnit.ParserTest.GivenNumbersWhenPrintedCanDisplayStatement" />
       <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
@@ -183,7 +185,6 @@
       <list>
         <item itemvalue="JUnit.ParserTest.GivenNumbersWhenPrintedCanDisplayStatement" />
         <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
-        <item itemvalue="Application.org.languaging.Lox" />
         <item itemvalue="JUnit.org.languaging in FirstProgrammingLanguage" />
         <item itemvalue="JUnit.ParserTest.GivenParenthesisOperatorCanParseExpression" />
       </list>
@@ -197,7 +198,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
-      <workItem from="1671800453607" duration="61913000" />
+      <workItem from="1671800453607" duration="65230000" />
+      <workItem from="1672151159249" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -297,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672105189417</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="refactor tests">
+      <created>1672105423796</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672105423796</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +348,8 @@
     <MESSAGE value="implemented statements and the print command" />
     <MESSAGE value="order parser methods properly" />
     <MESSAGE value="unary operator added to chain of responsibility pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="unary operator added to chain of responsibility pattern" />
+    <MESSAGE value="refactor tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

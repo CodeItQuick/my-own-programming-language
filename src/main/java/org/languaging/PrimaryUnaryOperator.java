@@ -20,14 +20,42 @@ public class PrimaryUnaryOperator implements Processable {
         // minus unary operator (method?)
         Token firstToken = tokens.get(current);
         Token secondToken = tokens.get(current + 1);
+        // recursively determine second term
+        if (firstToken.type == MINUS &&
+            secondToken.type == MINUS) {
+
+
+            PrimaryUnaryOperator unaryGenerator = new PrimaryUnaryOperator(
+                    tokens,
+                    current + 1);
+
+            Expr right = unaryGenerator.process();
+
+            Expr.Unary expression = new Expr.Unary(
+                    firstToken,
+                    right);
+            return expression;
+        }
+
         if (firstToken.type == MINUS &&
                 secondToken.type == NUMBER) {
+            // TODO: put the second term through primary processing again?
             return new Expr.Unary(
                     firstToken,
                     new Expr.Literal(secondToken.literal));
         }
 
         // negated boolean unary operator (method?)
+        if(firstToken.type == BANG &&
+          secondToken.type == BANG) {
+
+            PrimaryUnaryOperator unaryGenerator = new PrimaryUnaryOperator(
+                    tokens,
+                    current + 1);
+
+            Expr right = unaryGenerator.process();
+            return new Expr.Unary(firstToken, right);
+        }
         if(firstToken.type == BANG &&
           (secondToken.type == TRUE || secondToken.type == FALSE)) {
             return new Expr.Unary(firstToken, new Expr.Literal(secondToken.literal));

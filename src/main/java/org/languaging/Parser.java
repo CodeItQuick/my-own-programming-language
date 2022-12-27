@@ -1,5 +1,6 @@
 package org.languaging;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.languaging.TokenType.*;
@@ -15,18 +16,39 @@ public class Parser {
         this.tokens = tokens;
     }
 
-    Expr parse() {
-        try {
-            return expression();
-        } catch (ParseError error) {
-            System.out.println(error.getMessage());
-            return null;
-        }
-//         }
+    List<Stmt> parse() {
+            List<Stmt> statements = new ArrayList<>();
+            while (!isAtEnd()) {
+                statements.add(statement());
+            }
+
+            return statements;
     }
+    private Stmt statement() {
+        if (match(PRINT)) return printStatement();
+
+        return expressionStatement();
+    }
+    private Stmt printStatement() {
+        Expr value = expression();
+        consume(SEMICOLON, "Expect ';' after value.");
+        return new Stmt.Print(value);
+    }
+    private Stmt expressionStatement() {
+        Expr expr = expression();
+        consume(SEMICOLON, "Expect ';' after expression.");
+        return new Stmt.Expression(expr);
+    }
+
 
     public Expr expression() {
         return equality();
+    }
+
+    public Token consume(TokenType type, String message) {
+        if (check(type)) return advance();
+
+        throw error(peek(), message);
     }
 
     public Expr equality() {
@@ -53,7 +75,7 @@ public class Parser {
     }
 
     private boolean check(TokenType type) {
-        if (isAtEnd()) return false;
+        if (peek().type == EOF) return false;
         return peek().type == type;
     }
 
@@ -63,7 +85,7 @@ public class Parser {
     }
 
     private boolean isAtEnd() {
-        return peek().type == EOF;
+        return peek().type == EOF || peek().type == SEMICOLON;
     }
 
     private Token peek() {

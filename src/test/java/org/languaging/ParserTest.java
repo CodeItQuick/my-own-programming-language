@@ -17,7 +17,7 @@ class ParserTest {
                 new Token(SEMICOLON,null,";",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Literal.class);
     }
@@ -29,7 +29,7 @@ class ParserTest {
                 new Token(NUMBER,null,"1",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
         String result = new AstPrinter().print(expression);
@@ -43,7 +43,7 @@ class ParserTest {
                 new Token(FALSE,null,"false",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
         String result = new AstPrinter().print(expression);
@@ -58,7 +58,7 @@ class ParserTest {
                 new Token(FALSE,null,"false",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
         String result = new AstPrinter().print(expression);
@@ -74,7 +74,7 @@ class ParserTest {
                 new Token(EOF,null,null,1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
         String result = new AstPrinter().print(expression);
@@ -90,7 +90,7 @@ class ParserTest {
                 new Token(SEMICOLON,null,";",3)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
         String result = new AstPrinter().print(expression);
@@ -105,7 +105,7 @@ class ParserTest {
                 new Token(EOF,null,"EOF",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Unary.class);
         String result = new AstPrinter().print(expression);
@@ -122,7 +122,7 @@ class ParserTest {
                 new Token(RIGHT_PAREN,null,")",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.class);
         String result = new AstPrinter().print(expression);
@@ -135,11 +135,61 @@ class ParserTest {
                 new Token(NUMBER,null,"1",1)
         ));
 
-        Expr expression = parser.parse();
+        Expr expression = parser.expression();
 
         assertThat(expression).isInstanceOf(Expr.Literal.class);
         String result = new AstPrinter().print(expression);
         assertThat(result).isEqualTo("1");
+
+    }
+    @Test
+    public void GivenStringWhenPrintedCanDisplayStatement() {
+        Parser parser = new Parser(List.of(
+                new Token(PRINT,null,"PRINT",1),
+                new Token(STRING,null,"ONE",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Stmt.Print statements = (Stmt.Print) parser.parse().get(0);
+
+        assertThat(statements).isInstanceOf(Stmt.Print.class);
+        Interpreter interpreter = new Interpreter();
+        Object evaluate = interpreter.evaluate(statements.expression).toString();
+        assertThat(evaluate).isEqualTo("ONE");
+
+    }
+    @Test
+    public void GivenBooleanWhenPrintedCanDisplayStatement() {
+        Parser parser = new Parser(List.of(
+                new Token(PRINT,null,"PRINT",1),
+                new Token(TRUE,null,"true",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Stmt.Print statements = (Stmt.Print) parser.parse().get(0);
+
+        assertThat(statements).isInstanceOf(Stmt.Print.class);
+        Interpreter interpreter = new Interpreter();
+        Object evaluate = interpreter.evaluate(statements.expression).toString();
+        assertThat(evaluate).isEqualTo("true");
+
+    }
+    @Test
+    public void GivenNumbersWhenPrintedCanDisplayStatement() {
+        Parser parser = new Parser(List.of(
+                new Token(PRINT,null,"PRINT",1),
+                new Token(NUMBER,null,"2",1),
+                new Token(PLUS,"+",null,1),
+                new Token(NUMBER,null,"1",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Stmt.Print statements = (Stmt.Print) parser.parse().get(0);
+
+        assertThat(statements).isInstanceOf(Stmt.Print.class);
+        Interpreter interpreter = new Interpreter();
+        Object evaluate = interpreter.evaluate(statements.expression).toString();
+        assertThat(evaluate).isEqualTo("21");
 
     }
 }

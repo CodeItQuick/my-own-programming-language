@@ -25,7 +25,7 @@ public class PrimaryParenthesisLiterals implements Consumable {
                     .takeWhile(x -> x.type != RIGHT_PAREN)
                     .collect(Collectors.toList());
             Parser parser1 = new Parser(beforeRightParen);
-            Expr expr1 = parser1.parse();
+            Expr expr1 = parser1.expression();
             return new Expr.Grouping(expr1);
         }
         return null;

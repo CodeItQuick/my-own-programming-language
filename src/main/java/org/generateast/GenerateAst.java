@@ -2,6 +2,7 @@ package org.generateast;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +21,10 @@ public class GenerateAst {
                 "Expression : Expr expression",
                 "Print : Expr expression"
                 ));
+        defineAst(outputDir, "Stmt", Arrays.asList(
+                "Expression : Expr expression",
+                "Print : Expr expression"
+        ));
 
     }
     private static void defineAst(

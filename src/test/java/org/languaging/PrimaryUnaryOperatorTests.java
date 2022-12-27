@@ -16,9 +16,11 @@ class PrimaryUnaryOperatorTests {
         );
         PrimaryUnaryOperator processor =
                 new PrimaryUnaryOperator(tokens, 0);
-        Expr process = processor.process();
+        Expr expression = processor.process();
 
-        assertThat(process).isInstanceOf(Expr.class);
+        assertThat(expression).isInstanceOf(Expr.class);
+        String result = new AstPrinter().print(expression);
+        assertThat(result).isEqualTo("(- 1)");
     }
     @Test
     public void givenUnaryNotOperatorUnaryCanBeProcessed() {
@@ -28,9 +30,11 @@ class PrimaryUnaryOperatorTests {
         );
         PrimaryUnaryOperator processor =
                 new PrimaryUnaryOperator(tokens, 0);
-        Expr process = processor.process();
+        Expr expression = processor.process();
 
-        assertThat(process).isInstanceOf(Expr.class);
+        assertThat(expression).isInstanceOf(Expr.class);
+        String result = new AstPrinter().print(expression);
+        assertThat(result).isEqualTo("(! true)");
     }
     @Test
     public void givenUnaryOperatorProcessorCorrectlyConverts() {
@@ -40,9 +44,11 @@ class PrimaryUnaryOperatorTests {
         );
         PrimaryProcessing processor =
                 new PrimaryProcessing(tokens, 0);
-        Expr process = processor.process();
+        Expr expression = processor.process();
 
-        assertThat(process).isInstanceOf(Expr.class);
+        assertThat(expression).isInstanceOf(Expr.class);
+        String result = new AstPrinter().print(expression);
+        assertThat(result).isEqualTo("(- 1)");
     }
     @Test
     public void givenRegularExpressionProcessorReturnsNull() {

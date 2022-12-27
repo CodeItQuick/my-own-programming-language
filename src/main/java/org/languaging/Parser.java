@@ -89,26 +89,26 @@ public class Parser {
     }
 
     public Expr factor() {
-        Expr expr = unary();
+        Expr expr = primary();
 
         while (match(SLASH, STAR)) {
             Token operator = previous();
-            Expr right = unary();
+            Expr right = primary();
             expr = new Expr.Binary(expr, operator, right);
         }
 
         return expr;
     }
 
-    private Expr unary() {
-        if (match(BANG, MINUS)) {
-            Token operator = previous();
-            Expr right = unary();
-            return new Expr.Unary(operator, right);
-        }
-
-        return primary();
-    }
+//    private Expr unary() {
+//        if (match(BANG, MINUS)) {
+//            Token operator = previous();
+//            Expr right = unary();
+//            return new Expr.Unary(operator, right);
+//        }
+//
+//        return primary();
+//    }
 
     private Expr primary() {
         PrimaryProcessing processing =

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import static org.languaging.TokenType.*;
 
-public class PrimaryParenthesisLiterals implements Consumable {
+public class PrimaryParenthesisLiterals implements Processable {
     private List<Token> tokens;
     public PrimaryParenthesisLiterals(List<Token> tokens) {
         this.tokens = tokens;

@@ -7,7 +7,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.languaging.TokenType.*;
 
-class SubExpressionLiteralParenthesisTest {
+class PrimaryParenthesisLiteralsTest {
     @Test
     public void GivenOnlyParenthesisCanParseTerms() {
         List<Token> tokens = List.of(

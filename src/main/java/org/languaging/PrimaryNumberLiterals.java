@@ -4,7 +4,7 @@ import java.util.List;
 
 import static org.languaging.TokenType.*;
 
-public class PrimaryNumberLiterals implements Consumable {
+public class PrimaryNumberLiterals implements Processable {
     private final List<Token> tokens;
     private int current = 0;
     private Expr.Literal expr = null;

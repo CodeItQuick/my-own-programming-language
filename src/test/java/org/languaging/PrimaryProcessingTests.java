@@ -7,7 +7,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.languaging.TokenType.*;
 
-class SubExpressionLiteralProcessingTest {
+class PrimaryProcessingTests {
     @Test
     public void givenAllSubexpressionsCanParse() {
         List<Token> tokens = List.of(

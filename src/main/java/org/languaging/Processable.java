@@ -1,5 +1,5 @@
 package org.languaging;
 
-public interface Consumable {
+public interface Processable {
     public Expr process();
 }

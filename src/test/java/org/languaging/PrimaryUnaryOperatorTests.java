@@ -87,7 +87,7 @@ class PrimaryUnaryOperatorTests {
                 new Token(BANG, "!", null, 1),
                 new Token(BANG, "!", null, 1),
                 new Token(BANG, "!", null, 1),
-                new Token(TRUE, null, "true", 1)
+                new Token(TRUE, "true", "true", 1)
         );
         PrimaryProcessing processor =
                 new PrimaryProcessing(tokens, 0);

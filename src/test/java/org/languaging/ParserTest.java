@@ -146,8 +146,9 @@ class ParserTest {
     public void GivenStringWhenPrintedCanDisplayStatement() {
         Parser parser = new Parser(List.of(
                 new Token(PRINT,null,"PRINT",1),
-                new Token(STRING,null,"ONE",1),
-                new Token(SEMICOLON,null,";",1)
+                new Token(STRING,"\"ONE\"","ONE",1),
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,null,1)
         ));
 
         Stmt.Print statements = (Stmt.Print) parser.parse().get(0);
@@ -163,7 +164,8 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(PRINT,null,"PRINT",1),
                 new Token(TRUE,null,"true",1),
-                new Token(SEMICOLON,null,";",1)
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,null,1)
         ));
 
         Stmt.Print statements = (Stmt.Print) parser.parse().get(0);
@@ -181,7 +183,8 @@ class ParserTest {
                 new Token(NUMBER,null,"2",1),
                 new Token(PLUS,"+",null,1),
                 new Token(NUMBER,null,"1",1),
-                new Token(SEMICOLON,null,";",1)
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,null,1)
         ));
 
         Stmt.Print statements = (Stmt.Print) parser.parse().get(0);

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.languaging.TokenType.STRING;
 
 class ScannerServiceTests {
 
@@ -39,11 +40,10 @@ class ScannerServiceTests {
         scannerService.scanToken();
 
         List<Token> tokens = scannerService.retrieveTokens();
-        List<String> tokensStringList = tokens.stream().map(
-                x -> x.toString()).collect(Collectors.toList());
-        assertThat(tokensStringList).isEqualTo(
-                        List.of("STRING \" ")
-        );
+        assertThat(tokens.get(0).type).isEqualTo(STRING);
+        assertThat(tokens.get(0).lexeme).isEqualTo("\"text in here\"");
+        assertThat(tokens.get(0).literal).isEqualTo("text in here");
+        assertThat(tokens.get(0).line).isEqualTo(1);
     }
     @Test
     void whenNumberIsAddedThenTokensCanParse() {
@@ -70,9 +70,9 @@ class ScannerServiceTests {
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(
                         List.of(
-                                "NUMBER  7.0",
-                                "PLUS + null",
-                                "NUMBER +2 2.0")
+                                "NUMBER 7 7.0",
+                                "PLUS 7+ null",
+                                "NUMBER 7+2 2.0")
         );
     }
     // TODO: this should work

@@ -17,14 +17,19 @@ public class Parser {
     }
 
     List<Stmt> parse() {
+        try {
             List<Stmt> statements = new ArrayList<>();
             while (!isAtEnd()) {
                 statements.add(statement());
             }
 
             return statements;
+        } catch (ParseError error) {
+            synchronize();
+            return null;
+        }
     }
-    private Stmt statement() {
+    public Stmt statement() {
         if (match(PRINT)) return printStatement();
 
         return expressionStatement();
@@ -125,7 +130,7 @@ public class Parser {
 
     }
 
-    private boolean match(TokenType... types) {
+    public boolean match(TokenType... types) {
         for (TokenType type : types) {
             if (check(type)) {
                 advance();
@@ -147,7 +152,7 @@ public class Parser {
     }
 
     private boolean isAtEnd() {
-        return peek().type == EOF || peek().type == SEMICOLON;
+        return peek().type == EOF;
     }
 
     private Token peek() {

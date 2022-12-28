@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="recursively process unary operator and add tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Tokens.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="refactor unary operator class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryFactorOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/LoxAcceptanceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryUnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryUnaryOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryFactorOperatorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryFactorOperatorTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +80,7 @@
       <recent name="org.languaging" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in FirstProgrammingLanguage">
+  <component name="RunManager" selected="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens">
     <configuration name="org.generateast.GenerateAst" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.generateast.GenerateAst" />
       <module name="FirstProgrammingLanguage" />
@@ -97,7 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.GivenNumbersWhenPrintedCanDisplayStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoxAcceptanceTests.CanExecutePrintStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -106,8 +112,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
-      <option name="METHOD_NAME" value="GivenNumbersWhenPrintedCanDisplayStatement" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.LoxAcceptanceTests" />
+      <option name="METHOD_NAME" value="CanExecutePrintStatement" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FirstProgrammingLanguage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.languaging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.languaging" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.LoxAcceptanceTests" />
+      <option name="METHOD_NAME" value="CanRunAValidStatementThroughTheRunCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,7 +151,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrimaryUnaryOperatorTests.givenRegularExpressionProcessorReturnsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -138,14 +160,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.PrimaryUnaryOperatorTests" />
-      <option name="METHOD_NAME" value="givenRegularExpressionProcessorReturnsNull" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
+      <option name="METHOD_NAME" value="printScannedIdentifierProducesPrintAndStringTokens" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrimaryUnaryOperatorTests.givenTripleBangUnaryOperatorProcessorCorrectlyConverts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScannerTests.printScannedProducesPrintAndStringTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -154,24 +176,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.PrimaryUnaryOperatorTests" />
-      <option name="METHOD_NAME" value="givenTripleBangUnaryOperatorProcessorCorrectlyConverts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PrimaryUnaryOperatorTests.givenUnaryOperatorProcessorCorrectlyConverts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FirstProgrammingLanguage" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.languaging.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.PrimaryUnaryOperatorTests" />
-      <option name="METHOD_NAME" value="givenUnaryOperatorProcessorCorrectlyConverts" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
+      <option name="METHOD_NAME" value="printScannedProducesPrintAndStringTokens" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,18 +186,18 @@
     <list>
       <item itemvalue="Application.org.generateast.GenerateAst" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
-      <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenRegularExpressionProcessorReturnsNull" />
-      <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenTripleBangUnaryOperatorProcessorCorrectlyConverts" />
-      <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenUnaryOperatorProcessorCorrectlyConverts" />
-      <item itemvalue="JUnit.ParserTest.GivenNumbersWhenPrintedCanDisplayStatement" />
+      <item itemvalue="JUnit.LoxAcceptanceTests.CanExecutePrintStatement" />
+      <item itemvalue="JUnit.LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" />
+      <item itemvalue="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" />
+      <item itemvalue="JUnit.ScannerTests.printScannedProducesPrintAndStringTokens" />
       <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenUnaryOperatorProcessorCorrectlyConverts" />
-        <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenTripleBangUnaryOperatorProcessorCorrectlyConverts" />
-        <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenRegularExpressionProcessorReturnsNull" />
-        <item itemvalue="JUnit.ParserTest.GivenNumbersWhenPrintedCanDisplayStatement" />
+        <item itemvalue="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" />
+        <item itemvalue="JUnit.ScannerTests.printScannedProducesPrintAndStringTokens" />
+        <item itemvalue="JUnit.LoxAcceptanceTests.CanExecutePrintStatement" />
+        <item itemvalue="JUnit.LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" />
         <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
       </list>
     </recent_temporary>
@@ -205,7 +211,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
       <workItem from="1671800453607" duration="65230000" />
-      <workItem from="1672151159249" duration="4924000" />
+      <workItem from="1672151159249" duration="21871000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -319,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672152626174</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="refactor unary operator class">
+      <created>1672156203049</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1672156203049</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +376,8 @@
     <MESSAGE value="unary operator added to chain of responsibility pattern" />
     <MESSAGE value="refactor tests" />
     <MESSAGE value="recursively process unary operator and add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="recursively process unary operator and add tests" />
+    <MESSAGE value="refactor unary operator class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor unary operator class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -400,13 +414,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Parser.java</url>
-          <line>48</line>
+          <line>53</line>
           <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryUnaryOperator.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Tokens.java</url>
@@ -427,6 +436,31 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Tokens.java</url>
           <line>23</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryFactorOperator.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryFactorOperator.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/PrimaryFactorOperator.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

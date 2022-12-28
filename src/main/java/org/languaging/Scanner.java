@@ -14,6 +14,7 @@ class Scanner {
     List<Token> scanTokens() {
         while (!scannerService.isAtEnd()) {
             // We are at the beginning of the next lexeme.
+            scannerService.setStartEqualCurrent();
             scannerService.scanToken();
         }
 

@@ -15,7 +15,7 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             Lox.runtimeError(error);
         }
     }
-    private void execute(Stmt stmt) {
+    public void execute(Stmt stmt) {
         stmt.accept(this);
     }
 

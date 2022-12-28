@@ -14,7 +14,8 @@ class ParserTest {
     public void GivenTrueCanParseExpression() {
         Parser parser = new Parser(List.of(
                 new Token(TRUE,null,"true",1),
-                new Token(SEMICOLON,null,";",1)
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -26,7 +27,8 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(NUMBER,null,"1",1),
                 new Token(MINUS,"-",null,1),
-                new Token(NUMBER,null,"1",1)
+                new Token(NUMBER,null,"1",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -40,7 +42,8 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(TRUE,null,"true",1),
                 new Token(EQUAL_EQUAL,"==",null,1),
-                new Token(FALSE,null,"false",1)
+                new Token(FALSE,null,"false",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -55,7 +58,8 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(NIL,null,null,1),
                 new Token(EQUAL_EQUAL,"==",null,1),
-                new Token(FALSE,null,"false",1)
+                new Token(FALSE,null,"false",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -87,7 +91,8 @@ class ParserTest {
                 new Token(NUMBER,null,"1",1),
                 new Token(MINUS,"-",null,2),
                 new Token(NUMBER,null,"1",3),
-                new Token(SEMICOLON,null,";",3)
+                new Token(SEMICOLON,null,";",3),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -119,7 +124,8 @@ class ParserTest {
                 new Token(NUMBER,null,"1",1),
                 new Token(MINUS,"-",null,1),
                 new Token(NUMBER,null,"2",1),
-                new Token(RIGHT_PAREN,null,")",1)
+                new Token(RIGHT_PAREN,null,")",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -132,7 +138,8 @@ class ParserTest {
     @Test
     public void GivenNumberOperatorCanParseExpression() {
         Parser parser = new Parser(List.of(
-                new Token(NUMBER,null,"1",1)
+                new Token(NUMBER,null,"1",1),
+                new Token(EOF,null,"EOF",1)
         ));
 
         Expr expression = parser.expression();
@@ -193,6 +200,26 @@ class ParserTest {
         Interpreter interpreter = new Interpreter();
         Object evaluate = interpreter.evaluate(statements.expression).toString();
         assertThat(evaluate).isEqualTo("21");
+
+    }
+    @Test
+    public void GivenGroupedAdditionMultiplicationCanComputeResult() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"3",1),
+                new Token(STAR,"*",null,1),
+                new Token(LEFT_PAREN,null,"(",1),
+                new Token(NUMBER,null,"2",1),
+                new Token(PLUS,null,"+",1),
+                new Token(NUMBER,null,"6",1),
+                new Token(RIGHT_PAREN,null,")",1),
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,"EOF",1)
+        ));
+
+        Expr expr = parser.expression();
+
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expr)).isEqualTo("(* 3 (+ 2 6))");
 
     }
 }

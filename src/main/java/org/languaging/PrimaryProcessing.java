@@ -12,10 +12,10 @@ public class PrimaryProcessing {
                 .skip(current)
                 .collect(Collectors.toList());
         subExpressions = List.of(
-                new PrimaryUnaryOperator(tokens, current),
                 new PrimaryParenthesisLiterals(
                         groupingTokens
                 ),
+                new PrimaryUnaryOperator(tokens, current),
                 new PrimaryEqualityLiterals(
                         List.of(tokens.get(current))),
                 new PrimaryNumberLiterals(

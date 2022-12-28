@@ -76,31 +76,5 @@ public class ScannerTests {
         assertThat(tokens.get(1).type).isEqualTo(STRING);
         assertThat(tokens.get(1).literal).isEqualTo("hello world");
     }
-    // Saff Squeeze
-    @Test
-    public void printScannedIdentifierProducesPrintAndStringTokens() {
-        ScannerService scannerService = new ScannerService("print \"hello world\";");
-        scannerService.isAtEnd();
-        scannerService.setStartEqualCurrent();
-        scannerService.advance();
-        scannerService.identifier();
-        scannerService.setStartEqualCurrent();
-        scannerService.advance();
-        scannerService.advance();
-        scannerService.advance();
-        scannerService.identifier();
-        scannerService.advance();
-        scannerService.advance();
-        scannerService.advance();
-        scannerService.identifier();
-        List<Token> tokens = scannerService.retrieveTokens();
-        assertThat(tokens).hasSize(3);
-        assertThat(tokens.get(0).type).isEqualTo(PRINT);
-        assertThat(tokens.get(0).lexeme).isEqualTo("print");
-        assertThat(tokens.get(1).type).isEqualTo(IDENTIFIER);
-        assertThat(tokens.get(1).lexeme).isEqualTo("hello");
-        assertThat(tokens.get(1).type).isEqualTo(IDENTIFIER);
-        assertThat(tokens.get(1).lexeme).isEqualTo("world");
-    }
 
 }

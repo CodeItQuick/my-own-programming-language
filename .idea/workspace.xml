@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="refactor unary operator class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryFactorOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/LoxAcceptanceTests.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="mostly fixed - added more characterization tests and doing a saff squeeze">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/PrimaryProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/LoxAcceptanceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/LoxAcceptanceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryFactorOperatorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryFactorOperatorTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryParenthesisLiteralsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryParenthesisLiteralsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/PrimaryUnaryOperatorTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +78,7 @@
       <recent name="org.languaging" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens">
+  <component name="RunManager" selected="JUnit.PrimaryParenthesisLiteralsTest.GivenParenthesisRightGroupingParsesTerms">
     <configuration name="org.generateast.GenerateAst" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.generateast.GenerateAst" />
       <module name="FirstProgrammingLanguage" />
@@ -103,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoxAcceptanceTests.CanExecutePrintStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoxAcceptanceTests.CanEvaluateAdditionPrintStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -113,13 +111,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.LoxAcceptanceTests" />
-      <option name="METHOD_NAME" value="CanExecutePrintStatement" />
+      <option name="METHOD_NAME" value="CanEvaluateAdditionPrintStatement" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoxAcceptanceTests.CanEvaluateGroupingAdditionMultiplicationPrintStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -129,13 +127,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.LoxAcceptanceTests" />
-      <option name="METHOD_NAME" value="CanRunAValidStatementThroughTheRunCommand" />
+      <option name="METHOD_NAME" value="CanEvaluateGroupingAdditionMultiplicationPrintStatement" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.GivenStringWhenPrintedCanDisplayStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParserTest.GivenGroupedAdditionMultplicationCanComputeResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -145,13 +143,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
-      <option name="METHOD_NAME" value="GivenStringWhenPrintedCanDisplayStatement" />
+      <option name="METHOD_NAME" value="GivenGroupedAdditionMultplicationCanComputeResult" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PrimaryParenthesisLiteralsTest.GivenParenthesisRightGroupingParsesTerms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -160,14 +158,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
-      <option name="METHOD_NAME" value="printScannedIdentifierProducesPrintAndStringTokens" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.PrimaryParenthesisLiteralsTest" />
+      <option name="METHOD_NAME" value="GivenParenthesisRightGroupingParsesTerms" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerTests.printScannedProducesPrintAndStringTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PrimaryUnaryOperatorTests.givenGroupStatementCanCorrectlyConverts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -176,8 +174,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
-      <option name="METHOD_NAME" value="printScannedProducesPrintAndStringTokens" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.PrimaryUnaryOperatorTests" />
+      <option name="METHOD_NAME" value="givenGroupStatementCanCorrectlyConverts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,19 +184,19 @@
     <list>
       <item itemvalue="Application.org.generateast.GenerateAst" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
-      <item itemvalue="JUnit.LoxAcceptanceTests.CanExecutePrintStatement" />
-      <item itemvalue="JUnit.LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" />
-      <item itemvalue="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" />
-      <item itemvalue="JUnit.ScannerTests.printScannedProducesPrintAndStringTokens" />
-      <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
+      <item itemvalue="JUnit.LoxAcceptanceTests.CanEvaluateAdditionPrintStatement" />
+      <item itemvalue="JUnit.LoxAcceptanceTests.CanEvaluateGroupingAdditionMultiplicationPrintStatement" />
+      <item itemvalue="JUnit.ParserTest.GivenGroupedAdditionMultplicationCanComputeResult" />
+      <item itemvalue="JUnit.PrimaryParenthesisLiteralsTest.GivenParenthesisRightGroupingParsesTerms" />
+      <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenGroupStatementCanCorrectlyConverts" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ScannerTests.printScannedIdentifierProducesPrintAndStringTokens" />
-        <item itemvalue="JUnit.ScannerTests.printScannedProducesPrintAndStringTokens" />
-        <item itemvalue="JUnit.LoxAcceptanceTests.CanExecutePrintStatement" />
-        <item itemvalue="JUnit.LoxAcceptanceTests.CanRunAValidStatementThroughTheRunCommand" />
-        <item itemvalue="JUnit.ParserTest.GivenStringWhenPrintedCanDisplayStatement" />
+        <item itemvalue="JUnit.PrimaryParenthesisLiteralsTest.GivenParenthesisRightGroupingParsesTerms" />
+        <item itemvalue="JUnit.PrimaryUnaryOperatorTests.givenGroupStatementCanCorrectlyConverts" />
+        <item itemvalue="JUnit.ParserTest.GivenGroupedAdditionMultplicationCanComputeResult" />
+        <item itemvalue="JUnit.LoxAcceptanceTests.CanEvaluateGroupingAdditionMultiplicationPrintStatement" />
+        <item itemvalue="JUnit.LoxAcceptanceTests.CanEvaluateAdditionPrintStatement" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +209,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671800450522</updated>
       <workItem from="1671800453607" duration="65230000" />
-      <workItem from="1672151159249" duration="21871000" />
+      <workItem from="1672151159249" duration="24935000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - can scan simple input">
       <created>1671806061014</created>
@@ -332,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672156203049</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="mostly fixed - added more characterization tests and doing a saff squeeze">
+      <created>1672238417846</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672238417847</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +382,8 @@
     <MESSAGE value="refactor tests" />
     <MESSAGE value="recursively process unary operator and add tests" />
     <MESSAGE value="refactor unary operator class" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor unary operator class" />
+    <MESSAGE value="mostly fixed - added more characterization tests and doing a saff squeeze" />
+    <option name="LAST_COMMIT_MESSAGE" value="mostly fixed - added more characterization tests and doing a saff squeeze" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

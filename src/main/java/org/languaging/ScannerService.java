@@ -28,10 +28,11 @@ public class ScannerService {
     }
 
     public boolean isAtEnd() {
-        if (current < source.length()) {
-            start = current;
-        }
         return current >= source.length();
+    }
+
+    public void setStartEqualCurrent() {
+        start = current;
     }
 
     protected void scanToken() {
@@ -111,13 +112,18 @@ public class ScannerService {
         keywords.put("while",  WHILE);
     }
 
-    private void identifier() {
+    public void identifier() {
+        while (isAlphaNumeric(peek())) advance();
+
+        /* Scanning identifier < Scanning keyword-type
+            addToken(IDENTIFIER);
+        */
+        //> keyword-type
         String text = source.substring(start, current);
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
         addToken(type);
-
-        addToken(IDENTIFIER);
+        //< keyword-type
     }
 
     private boolean isAlpha(char c) {
@@ -168,7 +174,7 @@ public class ScannerService {
         advance();
 
         // Trim the surrounding quotes.
-        String value = source.substring(start + 1, current);
+        String value = source.substring(start, current);
         addToken(STRING, value);
     }
 
@@ -180,7 +186,7 @@ public class ScannerService {
         return true;
     }
 
-    private char advance() {
+    public char advance() {
         return source.charAt(current++);
     }
 

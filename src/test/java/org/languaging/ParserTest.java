@@ -340,4 +340,17 @@ class ParserTest {
         assertThat(expression).isInstanceOf(Expr.Binary.class);
 
     }
+    @Test
+    public void GivenNonExpressionReturnsNull() {
+        Parser parser = new Parser(List.of(
+                new Token(SLASH,"/",null,1),
+                new Token(STAR,"*",null,1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isNull();
+
+    }
 }

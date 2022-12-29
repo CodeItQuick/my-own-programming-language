@@ -20,9 +20,9 @@ public class Parser {
         try {
             return expression();
         } catch (ParseError error) {
+            System.out.println(error.getMessage());
             return null;
         }
-//         }
     }
 
     private Expr expression() {
@@ -63,7 +63,7 @@ public class Parser {
     }
 
     private boolean isAtEnd() {
-        return peek().type == EOF;
+        return tokens.size() <= current || peek().type == EOF;
     }
 
     private Token peek() {

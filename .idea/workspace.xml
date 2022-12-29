@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="add more characterization tests around parser">
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="add more characterization tests around scanner">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Environment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/LoxCallable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/LoxClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/LoxFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/LoxInstance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Resolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Return.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Stmt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/InterpreterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ResolverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/AstPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/AstPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Lox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Lox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +77,8 @@
       <recent name="org.languaging" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Lox">
-    <configuration name="Lox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in FirstProgrammingLanguage">
+    <configuration name="Lox" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.languaging.Lox" />
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
@@ -96,6 +110,22 @@
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.GivenSubtractionSemiColonCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FirstProgrammingLanguage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.languaging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.languaging" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
+      <option name="METHOD_NAME" value="GivenSubtractionSemiColonCanParseExpression" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,6 +181,7 @@
     <list>
       <item itemvalue="Application.Lox" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
+      <item itemvalue="JUnit.ParserTest.GivenSubtractionSemiColonCanParseExpression" />
       <item itemvalue="JUnit.ParserTest.GivenTermOperatorCanParseExpression" />
       <item itemvalue="JUnit.ScannerServiceTests.whenComplexExpressionIsAddedThenTokensCanParse" />
       <item itemvalue="JUnit.ScannerTests.WhenExpressionEnteredCanParseTokenType" />
@@ -158,7 +189,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Lox" />
+        <item itemvalue="JUnit.ParserTest.GivenSubtractionSemiColonCanParseExpression" />
         <item itemvalue="JUnit.ScannerTests.WhenExpressionEnteredCanParseTokenType" />
         <item itemvalue="JUnit.ScannerServiceTests.whenComplexExpressionIsAddedThenTokensCanParse" />
         <item itemvalue="JUnit.ParserTest" />
@@ -218,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672326668299</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add more characterization tests around scanner">
+      <created>1672328903813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672328903813</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,19 +279,20 @@
     <MESSAGE value="Added tests, can parse strings and other things" />
     <MESSAGE value="add printer and characterization tests" />
     <MESSAGE value="add more characterization tests around parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="add more characterization tests around parser" />
+    <MESSAGE value="add more characterization tests around scanner" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more characterization tests around scanner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Parser.java</url>
-          <line>40</line>
+          <line>134</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Parser.java</url>
-          <line>147</line>
+          <line>483</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -305,6 +344,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/languaging/ScannerService.java</url>
           <line>177</line>
           <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/languaging/Interpreter.java</url>
+          <line>502</line>
+          <option name="timeStamp" value="121" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

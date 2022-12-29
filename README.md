@@ -39,4 +39,4 @@ directly run files but I haven't done/used that portion of the programming langu
 
 ## Tests
 There are 55 tests so far, mostly unit, some "acceptance style" but those are very sparing. Mostly tested the scanner, parser, 
-and interpreter so far.
+and interpreter.

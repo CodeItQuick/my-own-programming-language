@@ -46,7 +46,8 @@ public class ScannerTests {
     }
     @Test
     public void WhenComplexExpressionEnteredCanParseTokenTypes() {
-        Scanner scanner = new Scanner("if (1 > 2) { var x = x + 1; }");
+        Scanner scanner = new Scanner(
+                "if (1 > 2) { var x = x + 1; }");
 
         List<String> tokens = scanner.scanTokens().stream().map(
                 x -> x.toString()).collect(Collectors.toList());

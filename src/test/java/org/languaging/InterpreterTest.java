@@ -3,6 +3,7 @@ package org.languaging;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -268,7 +269,51 @@ class InterpreterTest {
 
         Interpreter interpreter = new Interpreter();
         assertThat(interpreter.evaluate(expression)).isEqualTo(2.0);
+    }
+    @Test
+    public void GivenComplexExpressionCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(IF, "if", null, 1),
+                new Token(LEFT_PAREN, "(", null, 1),
+                new Token(NUMBER, "3", 3.0, 1),
+                new Token(GREATER, ">", null, 1),
+                new Token(NUMBER, "2", 2.0, 1),
+                new Token(RIGHT_PAREN, ")", null, 1),
+                new Token(LEFT_BRACE, "{", null, 1),
+                new Token(VAR, "var", null, 1),
+                new Token(IDENTIFIER, "x", null, 1),
+                new Token(EQUAL, "=", null, 1),
+                new Token(NUMBER, "2", 2.0, 1),
+                new Token(PLUS, "+", null, 1),
+                new Token(NUMBER, "1", 1.0, 1),
+                new Token(SEMICOLON, ";", null, 1),
+                new Token(RIGHT_BRACE, "}", null, 1),
+                new Token(EOF, null, null, 1)
+        ));
 
+        List<Stmt> statement = parser.parse();
 
+        Interpreter interpreter = new Interpreter();
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(statement.get(0))).isEqualTo("(if (> 3.0 2.0) (block (var x = (+ 2.0 1.0))))");
+        assertThat(statement.get(0).accept(interpreter)).isNull();
+    }
+    @Test
+    public void WhenExpressionEnteredCanParseTokenType() {
+
+        Parser parser = new Parser(List.of(
+                        new Token(VAR, "var", null, 1),
+                        new Token(IDENTIFIER, "helloWorld", null, 1),
+                        new Token(EQUAL, "=", null, 1),
+                        new Token(STRING, "\" Hello World \"",  " Hello World ", 1),
+                        new Token(SEMICOLON, ";", null, 1),
+                        new Token(EOF, null,  null, 1)));
+
+        List<Stmt> statement = parser.parse();
+
+        Interpreter interpreter = new Interpreter();
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(statement.get(0))).isEqualTo("(var helloWorld =  Hello World )");
+        assertThat(statement.get(0).accept(interpreter)).isNull();
     }
 }

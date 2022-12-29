@@ -35,7 +35,7 @@
  
 ## Running the program
 download the program, and run the main method, it will automatically run what is essentially a repl for lox. Can also 
-directly run files but I haven't done/used that portion of the programming language yet
+directly run files, but I haven't done/used that portion of the programming language yet
 
 ## Tests
 There are 55 tests so far, mostly unit, some "acceptance style" but those are very sparing. Mostly tested the scanner, parser, 

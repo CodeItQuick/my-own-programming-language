@@ -273,7 +273,28 @@
       <option name="project" value="LOCAL" />
       <updated>1672340085811</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add readme with lessons learned and how to run">
+      <created>1672340438587</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672340438587</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add readme with lessons learned and how to run">
+      <created>1672340466966</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1672340466966</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add readme with lessons learned and how to run">
+      <created>1672340470592</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672340470592</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

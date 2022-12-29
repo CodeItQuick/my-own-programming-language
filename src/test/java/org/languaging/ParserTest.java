@@ -125,6 +125,85 @@ class ParserTest {
         assertThat(astPrinter.print(expression)).isEqualTo("(> 1 2)");
 
     }
+    // Greater Than
+    @Test
+    public void GivenJustComparisonOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"1",1),
+                new Token(GREATER,">",null,1),
+                new Token(NUMBER,null,"2",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(> 1 2)");
+
+    }
+    @Test
+    public void GivenGreaterEqualComparisonOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"1",1),
+                new Token(GREATER_EQUAL,">=",null,1),
+                new Token(NUMBER,null,"2",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(>= 1 2)");
+
+    }
+    @Test
+    public void GivenLessEqualComparisonOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"4",1),
+                new Token(GREATER_EQUAL,"=<",null,1),
+                new Token(NUMBER,null,"7",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(=< 4 7)");
+
+    }
+
+    // Factor
+    @Test
+    public void GivenDivisionCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"4",1),
+                new Token(SLASH,"/",null,1),
+                new Token(NUMBER,null,"2",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(/ 4 2)");
+
+    }
+    @Test
+    public void GivenMultiplicationCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"5",1),
+                new Token(SLASH,"*",null,1),
+                new Token(NUMBER,null,"3",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(* 5 3)");
+
+    }
     // Unary
     @Test
     public void GivenUnaryOperatorCanParseExpression() {
@@ -142,11 +221,27 @@ class ParserTest {
 
     }
     @Test
+    public void GivenRecursiveUnaryOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(MINUS,"-",null,1),
+                new Token(MINUS,"-",null,1),
+                new Token(NUMBER,null,"7",1),
+                new Token(EOF,null,null,1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Unary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(- (- 7))");
+
+    }
+    @Test
     public void GivenNotUnaryOperatorCanParseExpression() {
         Parser parser = new Parser(List.of(
                 new Token(BANG,"!",null,1),
                 new Token(TRUE,null,"true",1),
-                new Token(EOF,null,null,1)
+                new Token(SEMICOLON,null,";",1)
         ));
 
         Expr expression = parser.parse();
@@ -161,8 +256,7 @@ class ParserTest {
         Parser parser = new Parser(List.of(
                 new Token(BANG,"!",null,1),
                 new Token(BANG,"!",null,1),
-                new Token(TRUE,null,"true",1),
-                new Token(EOF,null,null,1)
+                new Token(TRUE,null,"true",1)
         ));
 
         Expr expression = parser.parse();
@@ -170,6 +264,80 @@ class ParserTest {
         assertThat(expression).isInstanceOf(Expr.Unary.class);
         AstPrinter astPrinter = new AstPrinter();
         assertThat(astPrinter.print(expression)).isEqualTo("(! (! true))");
+
+    }
+    @Test
+    public void GivenPrimaryNumberCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"1",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("1");
+
+    }
+    @Test
+    public void GivenPrimaryFalseCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(FALSE,null,"false",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("false");
+
+    }
+    @Test
+    public void GivenPrimaryNullCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NIL,null,"null",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("nil");
+
+    }
+    @Test
+    public void GivenPrimaryStringCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(STRING,null,"hello world",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Literal.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("hello world");
+
+    }
+    @Test
+    public void GivenGroupingsCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"4",1),
+                new Token(SLASH,"/",null,1),
+                new Token(LEFT_PAREN,null,"(",1),
+                new Token(NUMBER,null,"2",1),
+                new Token(PLUS,"+",null,1),
+                new Token(NUMBER,null,"5",1),
+                new Token(STAR,"*",null,1),
+                new Token(NUMBER,null,"7",1),
+                new Token(RIGHT_PAREN,null,")",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(/ 4 (group (+ 2 (* 5 7))))");
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
 
     }
 }

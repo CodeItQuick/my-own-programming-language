@@ -11,7 +11,7 @@ import static org.languaging.TokenType.*;
 class ParserTest {
 
     @Test
-    public void GivenEqualityCanParseExpression() {
+    public void GivenSubtractionCanParseExpression() {
         Parser parser = new Parser(List.of(
                 new Token(NUMBER,null,"1",1),
                 new Token(MINUS,null,"-",1),
@@ -22,6 +22,22 @@ class ParserTest {
         Expr expression = parser.parse();
 
         assertThat(expression).isInstanceOf(Expr.Binary.class);
+
+    }
+    @Test
+    public void GivenAdditionCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(NUMBER,null,"1",1),
+                new Token(PLUS,"+",null,1),
+                new Token(NUMBER,null,"1",1),
+                new Token(SEMICOLON,null,";",1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Binary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(+ 1 1)");
 
     }
     @Test
@@ -77,6 +93,37 @@ class ParserTest {
         Expr expression = parser.parse();
 
         assertThat(expression).isInstanceOf(Expr.Unary.class);
+
+    }
+    @Test
+    public void GivenNotUnaryOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(BANG,"!",null,1),
+                new Token(TRUE,null,"true",1),
+                new Token(EOF,null,null,1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Unary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(! true)");
+
+    }
+    @Test
+    public void GivenRecursiveNotUnaryOperatorCanParseExpression() {
+        Parser parser = new Parser(List.of(
+                new Token(BANG,"!",null,1),
+                new Token(BANG,"!",null,1),
+                new Token(TRUE,null,"true",1),
+                new Token(EOF,null,null,1)
+        ));
+
+        Expr expression = parser.parse();
+
+        assertThat(expression).isInstanceOf(Expr.Unary.class);
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(expression)).isEqualTo("(! (! true))");
 
     }
 }

@@ -1,6 +1,5 @@
 package org.languaging;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,49 +7,49 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ScannerServiceTests {
+class ScannerScanTokensTests {
 
     @Test
     void whenTokenIsScannedThenCanDetermineEnd() {
-        ScannerService scannerService = new ScannerService("+");
+        Scanner scanner = new Scanner("+");
 
-        scannerService.scanToken();
+        scanner.scanToken();
 
-        boolean atEnd = scannerService.isAtEnd();
+        boolean atEnd = scanner.isAtEnd();
         assertThat(atEnd).isTrue();
     }
     @Test
     void whenEOFTokenIsAddedThenTokensIncludesEOF() {
-        ScannerService scannerService = new ScannerService("+");
-        scannerService.scanToken();
+        Scanner scanner = new Scanner("+");
+        scanner.scanToken();
 
-        scannerService.addEOFToken();
 
-        List<Token> tokens = scannerService.retrieveTokens();
+        List<Token> tokens = scanner.retrieveTokens();
+
         List<String> tokensStringList = tokens.stream().map(
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(
-                        List.of("PLUS + null", "EOF  null")
+                        List.of("PLUS + null")
         );
     }
     @Test
     void whenStringIsAddedThenTokensCanParse() {
-        ScannerService scannerService = new ScannerService("\"text in here\"");
-        scannerService.scanToken();
+        Scanner scanner = new Scanner("\"text in here\"");
+        scanner.scanToken();
 
-        List<Token> tokens = scannerService.retrieveTokens();
+        List<Token> tokens = scanner.retrieveTokens();
         List<String> tokensStringList = tokens.stream().map(
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(
-                        List.of("STRING \"text in here\" \"text in here\"")
+                        List.of("STRING \"text in here\" text in here")
         );
     }
     @Test
     void whenNumberIsAddedThenTokensCanParse() {
-        ScannerService scannerService = new ScannerService("7");
-        scannerService.scanToken();
+        Scanner scanner = new Scanner("7");
+        scanner.scanToken();
 
-        List<Token> tokens = scannerService.retrieveTokens();
+        List<Token> tokens = scanner.retrieveTokens();
         List<String> tokensStringList = tokens.stream().map(
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(
@@ -60,28 +59,26 @@ class ScannerServiceTests {
     // TODO: Is this right? +2?
     @Test
     void whenExpressionIsAddedThenTokensCanParse() {
-        ScannerService scannerService = new ScannerService("7+2");
-        scannerService.scanToken();
-        scannerService.scanToken();
-        scannerService.scanToken();
+        Scanner scanner = new Scanner("7+2");
+        scanner.scanToken();
+        scanner.scanToken();
 
-        List<Token> tokens = scannerService.retrieveTokens();
+        List<Token> tokens = scanner.retrieveTokens();
         List<String> tokensStringList = tokens.stream().map(
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(
                         List.of(
                                 "NUMBER 7 7.0",
-                                "PLUS 7+ null",
-                                "NUMBER 7+2 2.0")
+                                "PLUS 7+ null")
         );
     }
     @Test
     void whenComplexExpressionIsAddedThenTokensCanParse() {
-        ScannerService scannerService = new ScannerService("var");
+        Scanner scanner = new Scanner("var");
 
-        scannerService.scanToken();
+        scanner.scanToken();
 
-        List<Token> tokens = scannerService.retrieveTokens();
+        List<Token> tokens = scanner.retrieveTokens();
         List<String> tokensStringList = tokens.stream().map(
                 x -> x.toString()).collect(Collectors.toList());
         assertThat(tokensStringList).isEqualTo(

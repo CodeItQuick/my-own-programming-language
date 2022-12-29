@@ -56,7 +56,7 @@ class Scanner {
     }
     //< scan-tokens
 //> scan-token
-    private void scanToken() {
+    void scanToken() {
         char c = advance();
         switch (c) {
             case '(': addToken(LEFT_PAREN); break;
@@ -220,7 +220,7 @@ class Scanner {
     } // [is-digit]
     //< is-digit
 //> is-at-end
-    private boolean isAtEnd() {
+    boolean isAtEnd() {
         return current >= source.length();
     }
     //< is-at-end
@@ -236,6 +236,10 @@ class Scanner {
     private void addToken(TokenType type, Object literal) {
         String text = source.substring(start, current);
         tokens.add(new Token(type, text, literal, line));
+    }
+
+    public List<Token> retrieveTokens() {
+        return tokens;
     }
 //< advance-and-add-token
 }

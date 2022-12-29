@@ -17,22 +17,22 @@
 6. Eventually split apart classes as was my original goal in Attempt 1, or clarify some classes or structures (coaching should help here!)
 
 ## Class Structure/Files Short Description on my understanding of what they do:
-AstPrinter: can print a statement or expression. Highly useful for testing
-Environment: does environment things, I think mostly for figuring out how fast things run
-Interpreter: "Interprets" a list of expressions or statements
-Lox:: the main class that starts the program, runs the file, and then calls the scanner, parser, and interpreter as needed.
-LoxCallable: not sure
-LoxClass: something to do with lox classes
-LoxFunction: something to do with lox functions
-LoxInstance: probably for instance variables (not tested yet actually... ?)
-Parser: parses tokens from the scanner to give to the interpreter
-Resolver: Seems to call the interpreter and statements/expressions directly for some reason
-Return: Something to do with returning values from functions/class methods likely
-Scanner: Scans an input and then produces a series of tokens for the parser->interpreter
-Stmt: something that is executable (not certain on that)
-Token: a single unit to be parsed or interpreted/run/executed/etc.
-TokenType: the thing in the token, its the type, could be almost anything, eg: keyword, string, number, division, etc.
-
+* AstPrinter: can print a statement or expression. Highly useful for testing
+* Environment: does environment things, I think mostly for figuring out how fast things run
+* Interpreter: "Interprets" a list of expressions or statements
+* Lox:: the main class that starts the program, runs the file, and then calls the scanner, parser, and interpreter as needed.
+* LoxCallable: not sure
+* LoxClass: something to do with lox classes
+* LoxFunction: something to do with lox functions
+* LoxInstance: probably for instance variables (not tested yet actually... ?)
+* Parser: parses tokens from the scanner to give to the interpreter
+* Resolver: Seems to call the interpreter and statements/expressions directly for some reason
+* Return: Something to do with returning values from functions/class methods likely
+* Scanner: Scans an input and then produces a series of tokens for the parser->interpreter
+* Stmt: something that is executable (not certain on that)
+* Token: a single unit to be parsed or interpreted/run/executed/etc.
+* TokenType: the thing in the token, its the type, could be almost anything, eg: keyword, string, number, division, etc.
+ 
 ## Running the program
 download the program, and run the main method, it will automatically run what is essentially a repl for lox. Can also 
 directly run files but I haven't done/used that portion of the programming language yet

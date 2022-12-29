@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="fixed scannerservice tests to scannerscantokens tests">
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="wrote more characterization tests around the interpreter">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/InterpreterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/InterpreterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672337390800</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="wrote more characterization tests around the interpreter">
+      <created>1672338717167</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672338717167</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +286,8 @@
     <MESSAGE value="add more characterization tests around scanner" />
     <MESSAGE value="add more characterization tests around interpreter" />
     <MESSAGE value="fixed scannerservice tests to scannerscantokens tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed scannerservice tests to scannerscantokens tests" />
+    <MESSAGE value="wrote more characterization tests around the interpreter" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote more characterization tests around the interpreter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

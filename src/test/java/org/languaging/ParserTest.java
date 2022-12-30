@@ -10,6 +10,25 @@ import static org.languaging.TokenType.*;
 
 class ParserTest {
 
+    //ClassAndMethod hello world example
+    @Test
+    public void whenClassAndMethodParsedOutputCorrect() {
+        Scanner scanner = new Scanner(
+                "class HelloWorld { " +
+                        "HelloWorld() { } " +
+                        "hello() { print \"World\"; } " +
+                        "} ");
+        List<Token> tokens = scanner.scanTokens();
+        Parser parser = new Parser(tokens);
+
+        List<Stmt> statements = parser.parse();
+
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(statements.get(0))).isEqualTo(
+                "(class HelloWorld (fun HelloWorld() ) (fun hello() (print World)))");
+
+    }
+
     // Subtraction
     @Test
     public void GivenSubtractionSemiColonCanParseExpression() {

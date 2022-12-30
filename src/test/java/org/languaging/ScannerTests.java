@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.languaging.TokenType.*;
+import static org.languaging.TokenType.CLASS;
 
 public class ScannerTests {
 
@@ -21,6 +22,32 @@ public class ScannerTests {
                 .isEqualTo(List.of(
                         PLUS + " + null",
                         EOF + "  null" ));
+    }
+    @Test
+    public void WhenClassDeclaredCanParseTokens() {
+        Scanner scanner = new Scanner(
+                "class HelloWorld { " +
+                        "HelloWorld() { } " +
+                        "hello() { print \"World\"; } " +
+                        "} ");
+        List<Token> tokens = scanner.scanTokens();
+        assertThat(tokens.get(0).toString()).isEqualTo("CLASS class null"); //,
+        assertThat(tokens.get(1).toString()).isEqualTo("IDENTIFIER HelloWorld null");
+        assertThat(tokens.get(2).toString()).isEqualTo("LEFT_BRACE { null");
+        assertThat(tokens.get(3).toString()).isEqualTo("IDENTIFIER HelloWorld null");
+        assertThat(tokens.get(4).toString()).isEqualTo("LEFT_PAREN ( null");
+        assertThat(tokens.get(5).toString()).isEqualTo("RIGHT_PAREN ) null");
+        assertThat(tokens.get(7).toString()).isEqualTo("RIGHT_BRACE } null");
+        assertThat(tokens.get(8).toString()).isEqualTo("IDENTIFIER hello null");
+        assertThat(tokens.get(9).toString()).isEqualTo("LEFT_PAREN ( null");
+        assertThat(tokens.get(10).toString()).isEqualTo("RIGHT_PAREN ) null");
+        assertThat(tokens.get(11).toString()).isEqualTo("LEFT_BRACE { null");
+        assertThat(tokens.get(12).toString()).isEqualTo("PRINT print null");
+        assertThat(tokens.get(13).toString()).isEqualTo("STRING \"World\" World");
+        assertThat(tokens.get(14).toString()).isEqualTo("SEMICOLON ; null");
+        assertThat(tokens.get(15).toString()).isEqualTo("RIGHT_BRACE } null");
+        assertThat(tokens.get(16).toString()).isEqualTo("RIGHT_BRACE } null");
+        assertThat(tokens.get(17).toString()).isEqualTo("EOF  null");
     }
     @Test
     public void GivenScannerWhenMinusTokenEnteredCanParseTokenType() {

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="add readme with lessons learned and how to run">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/LoxTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +61,12 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.languaging" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.languaging" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.All in FirstProgrammingLanguage">
-    <configuration name="Lox" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="org.languaging.Lox" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.languaging.Lox" />
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
@@ -81,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoxTests.whenClassAndMethodInterpretedOutputCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -90,8 +96,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.LoxTests" />
+      <option name="METHOD_NAME" value="whenClassAndMethodInterpretedOutputCorrect" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,7 +119,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.GivenTermOperatorCanParseExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParserTest.whenClassAndMethodParsedOutputCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -122,13 +129,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.ParserTest" />
-      <option name="METHOD_NAME" value="GivenTermOperatorCanParseExpression" />
+      <option name="METHOD_NAME" value="whenClassAndMethodParsedOutputCorrect" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerServiceTests.whenComplexExpressionIsAddedThenTokensCanParse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScannerTests.WhenClassDeclaredCanParseTokens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FirstProgrammingLanguage" />
       <extension name="coverage">
         <pattern>
@@ -137,8 +144,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerServiceTests" />
-      <option name="METHOD_NAME" value="whenComplexExpressionIsAddedThenTokensCanParse" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
+      <option name="METHOD_NAME" value="WhenClassDeclaredCanParseTokens" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,21 +168,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Lox" />
+      <item itemvalue="Application.org.languaging.Lox" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
+      <item itemvalue="JUnit.LoxTests.whenClassAndMethodInterpretedOutputCorrect" />
       <item itemvalue="JUnit.ParserTest.GivenSubtractionSemiColonCanParseExpression" />
-      <item itemvalue="JUnit.ParserTest.GivenTermOperatorCanParseExpression" />
-      <item itemvalue="JUnit.ScannerServiceTests.whenComplexExpressionIsAddedThenTokensCanParse" />
+      <item itemvalue="JUnit.ParserTest.whenClassAndMethodParsedOutputCorrect" />
+      <item itemvalue="JUnit.ScannerTests.WhenClassDeclaredCanParseTokens" />
       <item itemvalue="JUnit.ScannerTests.WhenExpressionEnteredCanParseTokenType" />
-      <item itemvalue="JUnit.ParserTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScannerTests.WhenClassDeclaredCanParseTokens" />
+        <item itemvalue="JUnit.LoxTests.whenClassAndMethodInterpretedOutputCorrect" />
+        <item itemvalue="JUnit.ParserTest.whenClassAndMethodParsedOutputCorrect" />
         <item itemvalue="JUnit.ParserTest.GivenSubtractionSemiColonCanParseExpression" />
         <item itemvalue="JUnit.ScannerTests.WhenExpressionEnteredCanParseTokenType" />
-        <item itemvalue="JUnit.ScannerServiceTests.whenComplexExpressionIsAddedThenTokensCanParse" />
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.ParserTest.GivenTermOperatorCanParseExpression" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672340470592</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add readme with lessons learned and how to run">
+      <created>1672340495668</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672340495668</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -15,7 +15,7 @@ class ScannerScanTokensTests {
 
         scanner.scanToken();
 
-        boolean atEnd = scanner.isAtEnd();
+        boolean atEnd = scanner.scanState.isAtEnd();
         assertThat(atEnd).isTrue();
     }
     @Test

@@ -38,7 +38,7 @@ public class ScannerTests {
         Scanner scanner = new Scanner(
                 "class HelloWorld { " +
                         "HelloWorld() { } " +
-                        "hello() { print \"World\"; } " +
+                        "hello() { print \"Hello\nWorld\"; } " +
                         "} ");
         List<Token> tokens = scanner.scanTokens();
         assertThat(tokens.get(0).toString()).isEqualTo("CLASS class null"); //,
@@ -53,7 +53,7 @@ public class ScannerTests {
         assertThat(tokens.get(10).toString()).isEqualTo("RIGHT_PAREN ) null");
         assertThat(tokens.get(11).toString()).isEqualTo("LEFT_BRACE { null");
         assertThat(tokens.get(12).toString()).isEqualTo("PRINT print null");
-        assertThat(tokens.get(13).toString()).isEqualTo("STRING \"World\" World");
+        assertThat(tokens.get(13).toString()).isEqualTo("STRING \"Hello\nWorld\" Hello\nWorld");
         assertThat(tokens.get(14).toString()).isEqualTo("SEMICOLON ; null");
         assertThat(tokens.get(15).toString()).isEqualTo("RIGHT_BRACE } null");
         assertThat(tokens.get(16).toString()).isEqualTo("RIGHT_BRACE } null");

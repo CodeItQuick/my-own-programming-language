@@ -1,8 +1,3 @@
-### Coaching
-1. Compare the token/objects instead of string output, make an equals method on Token (eg)
-2. Pull out source/start/current/line -> peek etc?
-3. Parser seems way too difficult to refactor
-
 # Programming Language Written from reading "Crafting Interpreters"
 
 ## Attempts (Lessons Learned):
@@ -19,6 +14,7 @@
 4. 60 characterization tests written, program/code behaves as expected/works!, and I have a bunch of tests that explain the code
 5. Want to add sociable/more comprehensive testing suite
 6. Eventually split apart classes as was my original goal in Attempt 1, or clarify some classes or structures (coaching should help here!)
+7. In a coaching session we moved some elements of the Scanner class over to "ScannerState", now the code is more testable, more methods are public, etc.
 
 ## Class Structure/Files Short Description on my understanding of what they do:
 * AstPrinter: can print a statement or expression. Highly useful for testing

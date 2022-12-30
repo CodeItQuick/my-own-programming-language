@@ -12,7 +12,7 @@
 1. Wrote about 20-30 characterization tests. Mostly captured the behaviour.
 2. Realized the program/code is half done, has some of my edits, updated it to only be the books code
 3. Updated my tests to only be testing the books code with characterization tests
-4. 55 characterization tests written, program/code behaves as expected/works!, and I have a bunch of tests that explain the code
+4. 60 characterization tests written, program/code behaves as expected/works!, and I have a bunch of tests that explain the code
 5. Want to add sociable/more comprehensive testing suite
 6. Eventually split apart classes as was my original goal in Attempt 1, or clarify some classes or structures (coaching should help here!)
 
@@ -34,7 +34,7 @@
 * TokenType: the thing in the token, its the type, could be almost anything, eg: keyword, string, number, division, etc.
  
 ## Running the program
-download the program, and run the main method, it will automatically run what is essentially a repl for lox. Can also 
+Download the program, and run the main method, it will automatically run what is essentially a repl for lox. Can also 
 directly run files, but I haven't done/used that portion of the programming language yet
 
 ## Tests

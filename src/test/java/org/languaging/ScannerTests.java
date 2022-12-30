@@ -24,6 +24,15 @@ public class ScannerTests {
                         EOF + "  null" ));
     }
     @Test
+    public void WhenVarDeclaredCanParseTokens() {
+        Scanner scanner = new Scanner("var helloWorld;");
+        List<Token> tokens = scanner.scanTokens();
+        assertThat(tokens.get(0).toString()).isEqualTo("VAR var null"); //,
+        assertThat(tokens.get(1).toString()).isEqualTo("IDENTIFIER helloWorld null");
+        assertThat(tokens.get(2).toString()).isEqualTo("SEMICOLON ; null");
+        assertThat(tokens.get(3).toString()).isEqualTo("EOF  null");
+    }
+    @Test
     public void WhenClassDeclaredCanParseTokens() {
         Scanner scanner = new Scanner(
                 "class HelloWorld { " +

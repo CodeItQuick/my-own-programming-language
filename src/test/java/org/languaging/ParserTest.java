@@ -362,14 +362,18 @@ class ParserTest {
     @Test
     public void GivenNonExpressionReturnsNull() {
         Parser parser = new Parser(List.of(
-                new Token(SLASH,"/",null,1),
-                new Token(STAR,"*",null,1),
-                new Token(SEMICOLON,null,";",1)
+                new Token(VAR,"var",null,1),
+                new Token(IDENTIFIER,"helloWorld",null,1),
+                new Token(SEMICOLON,null,";",1),
+                new Token(EOF,null,null,1)
         ));
 
-        assertThrows(Exception.class, () -> {
-            parser.expression();
-        });
+        List<Stmt> statements = parser.parse();
+
+        AstPrinter astPrinter = new AstPrinter();
+        assertThat(astPrinter.print(statements.get(0)))
+                .isEqualTo("(var helloWorld)");
+
 
     }
 }

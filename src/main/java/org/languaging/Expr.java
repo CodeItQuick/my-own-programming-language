@@ -10,12 +10,12 @@ abstract class Expr {
         R visitCallExpr(Call expr);
         R visitGetExpr(Get expr);
         R visitGroupingExpr(Grouping expr);
-        R visitLiteralExpr(Literal expr);
+        R visitLiteralExpr(Literal expr); //done
         R visitLogicalExpr(Logical expr);
         R visitSetExpr(Set expr);
         R visitSuperExpr(Super expr);
         R visitThisExpr(This expr);
-        R visitUnaryExpr(Unary expr);
+        R visitUnaryExpr(Unary expr); //done
         R visitVariableExpr(Variable expr);
     }
 

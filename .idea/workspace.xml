@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="Adding tests around statements">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ExprTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScanState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,7 +66,7 @@
       <recent name="org.languaging" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in FirstProgrammingLanguage">
+  <component name="RunManager" selected="JUnit.ScannerTests.GivenScannerWhenPlusTokenEnteredCanParseTokenType">
     <configuration name="org.languaging.Lox" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.languaging.Lox" />
       <module name="FirstProgrammingLanguage" />
@@ -100,22 +99,6 @@
       <option name="PACKAGE_NAME" value="org.languaging" />
       <option name="MAIN_CLASS_NAME" value="org.languaging.ExprTest" />
       <option name="METHOD_NAME" value="ForStatementAccepted" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExprTest.GivenAVariableCanVisitExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FirstProgrammingLanguage" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.languaging.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.languaging" />
-      <option name="MAIN_CLASS_NAME" value="org.languaging.ExprTest" />
-      <option name="METHOD_NAME" value="GivenAVariableCanVisitExpression" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,22 +152,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ScannerTests.GivenScannerWhenPlusTokenEnteredCanParseTokenType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FirstProgrammingLanguage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.languaging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.languaging" />
+      <option name="MAIN_CLASS_NAME" value="org.languaging.ScannerTests" />
+      <option name="METHOD_NAME" value="GivenScannerWhenPlusTokenEnteredCanParseTokenType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.org.languaging.Lox" />
       <item itemvalue="JUnit.All in FirstProgrammingLanguage" />
       <item itemvalue="JUnit.ExprTest.ForStatementAccepted" />
-      <item itemvalue="JUnit.ExprTest.GivenAVariableCanVisitExpression" />
       <item itemvalue="JUnit.ExprTest.IfStatementCanBeParsed" />
       <item itemvalue="JUnit.ExprTest.IfStatementDeclared" />
       <item itemvalue="JUnit.ExprTest.ReturnStatementCanBeParsed" />
+      <item itemvalue="JUnit.ScannerTests.GivenScannerWhenPlusTokenEnteredCanParseTokenType" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScannerTests.GivenScannerWhenPlusTokenEnteredCanParseTokenType" />
         <item itemvalue="JUnit.ExprTest.IfStatementDeclared" />
         <item itemvalue="JUnit.ExprTest.ReturnStatementCanBeParsed" />
         <item itemvalue="JUnit.ExprTest.IfStatementCanBeParsed" />
         <item itemvalue="JUnit.ExprTest.ForStatementAccepted" />
-        <item itemvalue="JUnit.ExprTest.GivenAVariableCanVisitExpression" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672410069531</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Adding tests around statements">
+      <created>1672424691185</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672424691186</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

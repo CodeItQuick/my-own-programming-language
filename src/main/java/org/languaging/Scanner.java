@@ -32,18 +32,22 @@ class Scanner {
         keywords.put("while",  WHILE);
     }
     //< keyword-map
-    private final String source;
     private final List<Token> tokens = new ArrayList<>();
     //> scan-state
+    private final ScanState scanState   ;
+    private final String source;
     private int start = 0;
     private int current = 0;
     private int line = 1;
 //< scan-state
 
     Scanner(String source) {
+
+        this.scanState = new ScanState();
         this.source = source;
     }
     //> scan-tokens
+    // called recursively
     List<Token> scanTokens() {
         while (!isAtEnd()) {
             // We are at the beginning of the next lexeme.
@@ -163,6 +167,7 @@ class Scanner {
     }
     //< number
 //> string
+    // Would be very difficult to pull out
     private void string() {
         while (peek() != '"' && !isAtEnd()) {
             if (peek() == '\n') line++;
@@ -204,6 +209,7 @@ class Scanner {
     } // [peek-next]
     //< peek-next
 //> is-alpha
+    // These are static classes
     private boolean isAlpha(char c) {
         return (c >= 'a' && c <= 'z') ||
                 (c >= 'A' && c <= 'Z') ||
@@ -226,7 +232,9 @@ class Scanner {
     //< is-at-end
 //> advance-and-add-token
     private char advance() {
-        return source.charAt(current++);
+        int index = current++;
+        return scanState.advance();
+//        return source.charAt(index);
     }
 
     private void addToken(TokenType type) {

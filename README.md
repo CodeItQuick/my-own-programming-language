@@ -1,3 +1,7 @@
+### Coaching
+1. Compare the token/objects instead of string output, make an equals method on Token (eg)
+2. Pull out source/start/current/line -> peek etc?
+3. Parser seems way too difficult to refactor
 
 # Programming Language Written from reading "Crafting Interpreters"
 

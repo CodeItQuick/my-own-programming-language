@@ -11,6 +11,7 @@ import static org.languaging.TokenType.CLASS;
 
 public class ScannerTests {
 
+    // test again object wi
     @Test
     public void GivenScannerWhenPlusTokenEnteredCanParseTokenType() {
         Scanner scanner = new Scanner("+");

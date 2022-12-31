@@ -32,13 +32,8 @@ class LoxTests {
         Scanner scanner = new Scanner("if(2 < 4) { print 4-2; }");
         List<Token> tokens = scanner.scanTokens();
         Parser parser = new Parser(tokens);
+
         List<Stmt> statements = parser.parse();
-
-        Interpreter interpreter = new Interpreter();
-        Resolver resolver = new Resolver(interpreter);
-        resolver.resolve(statements);
-
-        interpreter.interpret(statements); //returns void, no need for this?!?!?
 
         AstPrinter astPrinter = new AstPrinter();
         String print = astPrinter.print(statements.get(0));

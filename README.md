@@ -11,7 +11,7 @@
 1. Wrote about 20-30 characterization tests. Mostly captured the behaviour.
 2. Realized the program/code is half done, has some of my edits, updated it to only be the books code
 3. Updated my tests to only be testing the books code with characterization tests
-4. 60 characterization tests written, program/code behaves as expected/works!, and I have a bunch of tests that explain the code
+4. 70 characterization tests written, program/code behaves as expected/works!, and I have a bunch of tests that explain the code
 5. Want to add sociable/more comprehensive testing suite
 6. Eventually split apart classes as was my original goal in Attempt 1, or clarify some classes or structures (coaching should help here!)
 7. In a coaching session we moved some elements of the Scanner class over to "ScannerState", now the code is more testable, more methods are public, etc.

@@ -120,13 +120,14 @@ class Scanner {
                     identifier();
 //< identifier-scanState.start
                 } else {
-                    Lox.error(scanState.line, "Unexpected character.");
+                    Lox.error(scanState.retrieveLineNumber(), "Unexpected character.");
                 }
 //< digit-scanState.start
                 break;
 //< char-error
         }
     }
+
     //< scan-token
 //> identifier
     private void identifier() {

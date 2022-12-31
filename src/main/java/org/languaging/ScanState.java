@@ -46,4 +46,8 @@ public class ScanState {
         if (current + 1 >= source.length()) return '\0';
         return source.charAt(current + 1);
     } // [peek-next]
+
+    int retrieveLineNumber() {
+        return line;
+    }
 }

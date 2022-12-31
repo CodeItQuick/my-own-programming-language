@@ -32,32 +32,30 @@ class Scanner {
         keywords.put("while",  WHILE);
     }
     //< keyword-map
-    private final String source;
     private final List<Token> tokens = new ArrayList<>();
+    final ScanState scanState;
     //> scan-state
-    private int start = 0;
-    private int current = 0;
-    private int line = 1;
 //< scan-state
 
     Scanner(String source) {
-        this.source = source;
+        scanState = new ScanState(source);
     }
     //> scan-tokens
     List<Token> scanTokens() {
-        while (!isAtEnd()) {
+        while (!scanState.isAtEnd()) {
             // We are at the beginning of the next lexeme.
-            start = current;
+            scanState.assignStartToCurrent();
             scanToken();
         }
 
-        tokens.add(new Token(EOF, "", null, line));
+        tokens.add(new Token(EOF, "", null, scanState.retrieveLineNumber()));
         return tokens;
     }
+
     //< scan-tokens
 //> scan-token
     void scanToken() {
-        char c = advance();
+        char c = scanState.advance();
         switch (c) {
             case '(': addToken(LEFT_PAREN); break;
             case ')': addToken(RIGHT_PAREN); break;
@@ -71,23 +69,23 @@ class Scanner {
             case '*': addToken(STAR); break; // [slash]
 //> two-char-tokens
             case '!':
-                addToken(match('=') ? BANG_EQUAL : BANG);
+                addToken(scanState.match('=') ? BANG_EQUAL : BANG);
                 break;
             case '=':
-                addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+                addToken(scanState.match('=') ? EQUAL_EQUAL : EQUAL);
                 break;
             case '<':
-                addToken(match('=') ? LESS_EQUAL : LESS);
+                addToken(scanState.match('=') ? LESS_EQUAL : LESS);
                 break;
             case '>':
-                addToken(match('=') ? GREATER_EQUAL : GREATER);
+                addToken(scanState.match('=') ? GREATER_EQUAL : GREATER);
                 break;
 //< two-char-tokens
 //> slash
             case '/':
-                if (match('/')) {
-                    // A comment goes until the end of the line.
-                    while (peek() != '\n' && !isAtEnd()) advance();
+                if (scanState.match('/')) {
+                    // A comment goes until the end of the scanState.line.
+                    while (scanState.peek() != '\n' && !scanState.isAtEnd()) scanState.advance();
                 } else {
                     addToken(SLASH);
                 }
@@ -102,140 +100,86 @@ class Scanner {
                 break;
 
             case '\n':
-                line++;
+                scanState.advanceLineNumber();
                 break;
 //< whitespace
-//> string-start
+//> string-scanState.start
 
             case '"': string(); break;
-//< string-start
+//< string-scanState.start
 //> char-error
 
             default:
-/* Scanning char-error < Scanning digit-start
-        Lox.error(line, "Unexpected character.");
+/* Scanning char-error < Scanning digit-scanState.start
+        Lox.error(scanState.line, "Unexpected character.");
 */
-//> digit-start
+//> digit-scanState.start
                 if (isDigit(c)) {
                     number();
-//> identifier-start
+//> identifier-scanState.start
                 } else if (isAlpha(c)) {
                     identifier();
-//< identifier-start
+//< identifier-scanState.start
                 } else {
-                    Lox.error(line, "Unexpected character.");
+                    Lox.error(scanState.retrieveLineNumber(), "Unexpected character.");
                 }
-//< digit-start
+//< digit-scanState.start
                 break;
 //< char-error
         }
     }
+
     //< scan-token
 //> identifier
     private void identifier() {
-        while (isAlphaNumeric(peek())) advance();
-
-/* Scanning identifier < Scanning keyword-type
-    addToken(IDENTIFIER);
-*/
-//> keyword-type
-        String text = source.substring(start, current);
+        String text = scanState.extractIdentifier();
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
         addToken(type);
 //< keyword-type
     }
+
     //< identifier
 //> number
     private void number() {
-        while (isDigit(peek())) advance();
-
-        // Look for a fractional part.
-        if (peek() == '.' && isDigit(peekNext())) {
-            // Consume the "."
-            advance();
-
-            while (isDigit(peek())) advance();
-        }
+        scanState.extractDigit();
 
         addToken(NUMBER,
-                Double.parseDouble(source.substring(start, current)));
+                Double.parseDouble(scanState.retrieveSubstring()));
     }
+
     //< number
 //> string
     private void string() {
-        while (peek() != '"' && !isAtEnd()) {
-            if (peek() == '\n') line++;
-            advance();
-        }
-
-        if (isAtEnd()) {
-            Lox.error(line, "Unterminated string.");
-            return;
-        }
-
-        // The closing ".
-        advance();
-
-        // Trim the surrounding quotes.
-        String value = source.substring(start + 1, current - 1);
+        String value = scanState.extractString();
+        if (value == null) return;
         addToken(STRING, value);
     }
-    //< string
-//> match
-    private boolean match(char expected) {
-        if (isAtEnd()) return false;
-        if (source.charAt(current) != expected) return false;
 
-        current++;
-        return true;
-    }
-    //< match
-//> peek
-    private char peek() {
-        if (isAtEnd()) return '\0';
-        return source.charAt(current);
-    }
-    //< peek
-//> peek-next
-    private char peekNext() {
-        if (current + 1 >= source.length()) return '\0';
-        return source.charAt(current + 1);
-    } // [peek-next]
     //< peek-next
 //> is-alpha
-    private boolean isAlpha(char c) {
+    public static boolean isAlpha(char c) {
         return (c >= 'a' && c <= 'z') ||
                 (c >= 'A' && c <= 'Z') ||
                 c == '_';
     }
 
-    private boolean isAlphaNumeric(char c) {
+    public static boolean isAlphaNumeric(char c) {
         return isAlpha(c) || isDigit(c);
     }
     //< is-alpha
 //> is-digit
-    private boolean isDigit(char c) {
+    public static boolean isDigit(char c) {
         return c >= '0' && c <= '9';
     } // [is-digit]
-    //< is-digit
-//> is-at-end
-    boolean isAtEnd() {
-        return current >= source.length();
-    }
-    //< is-at-end
-//> advance-and-add-token
-    private char advance() {
-        return source.charAt(current++);
-    }
 
     private void addToken(TokenType type) {
         addToken(type, null);
     }
 
     private void addToken(TokenType type, Object literal) {
-        String text = source.substring(start, current);
-        tokens.add(new Token(type, text, literal, line));
+        String text = scanState.retrieveSubstring();
+        tokens.add(new Token(type, text, literal, scanState.retrieveLineNumber()));
     }
 
     public List<Token> retrieveTokens() {

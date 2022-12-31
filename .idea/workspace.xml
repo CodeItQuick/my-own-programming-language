@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="Adding tests around statements">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ExprTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/languaging/ScannerTests.java" afterDir="false" />
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="make source private">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/ScanState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScanState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/Scanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,6 +47,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.languaging" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -317,7 +316,119 @@
       <option name="project" value="LOCAL" />
       <updated>1672410069531</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="move fields over to new class and make them public, instantiate source">
+      <created>1672495303213</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495303213</updated>
+    </task>
+    <task id="LOCAL-00019" summary="beginning making current private - move advance over to new class, single f6 refactor">
+      <created>1672495354828</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495354828</updated>
+    </task>
+    <task id="LOCAL-00020" summary="beginning making current private - move advance over to new class, single f6 refactor">
+      <created>1672495370436</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495370436</updated>
+    </task>
+    <task id="LOCAL-00021" summary="start move small methods over - move isAtEnd over to scanState">
+      <created>1672495468062</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495468062</updated>
+    </task>
+    <task id="LOCAL-00022" summary="start move small methods over - move match over to scanState">
+      <created>1672495563995</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495563995</updated>
+    </task>
+    <task id="LOCAL-00023" summary="start move small methods over - move peek over to scanState">
+      <created>1672495593863</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495593863</updated>
+    </task>
+    <task id="LOCAL-00024" summary="start move small methods over - move peekNext over to scanState">
+      <created>1672495613581</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495613581</updated>
+    </task>
+    <task id="LOCAL-00025" summary="start move small methods over - move retrieveLineNumber over to scanState">
+      <created>1672495773264</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495773264</updated>
+    </task>
+    <task id="LOCAL-00026" summary="start move large methods over - move extractIdentifier over to scanState">
+      <created>1672495955996</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495955996</updated>
+    </task>
+    <task id="LOCAL-00027" summary="start move large methods over - move extractDigit over to scanState">
+      <created>1672496021320</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496021320</updated>
+    </task>
+    <task id="LOCAL-00028" summary="start move large methods over - move retrieveSubstring over to scanState">
+      <created>1672496094605</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496094605</updated>
+    </task>
+    <task id="LOCAL-00029" summary="start move large methods over - move extractSubstring over to scanState">
+      <created>1672496143064</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496143064</updated>
+    </task>
+    <task id="LOCAL-00030" summary="start move large methods over - move assignStartToCurrent over to scanState">
+      <created>1672496222089</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496222089</updated>
+    </task>
+    <task id="LOCAL-00031" summary="make current private">
+      <created>1672496272182</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496272182</updated>
+    </task>
+    <task id="LOCAL-00032" summary="make source private">
+      <created>1672496307357</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496307357</updated>
+    </task>
+    <task id="LOCAL-00033" summary="make source private">
+      <created>1672496343777</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496343777</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +446,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit - can scan simple input" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Minor refactor of public vs private method ordering" />
     <MESSAGE value="Added tests, can parse strings and other things" />
     <MESSAGE value="add printer and characterization tests" />
@@ -347,7 +459,21 @@
     <MESSAGE value="add readme with lessons learned and how to run" />
     <MESSAGE value="Three Sociable Acceptance tests added" />
     <MESSAGE value="Adding tests around statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding tests around statements" />
+    <MESSAGE value="move fields over to new class and make them public, instantiate source" />
+    <MESSAGE value="beginning making current private - move advance over to new class, single f6 refactor" />
+    <MESSAGE value="start move small methods over - move isAtEnd over to scanState" />
+    <MESSAGE value="start move small methods over - move match over to scanState" />
+    <MESSAGE value="start move small methods over - move peek over to scanState" />
+    <MESSAGE value="start move small methods over - move peekNext over to scanState" />
+    <MESSAGE value="start move small methods over - move retrieveLineNumber over to scanState" />
+    <MESSAGE value="start move large methods over - move extractIdentifier over to scanState" />
+    <MESSAGE value="start move large methods over - move extractDigit over to scanState" />
+    <MESSAGE value="start move large methods over - move retrieveSubstring over to scanState" />
+    <MESSAGE value="start move large methods over - move extractSubstring over to scanState" />
+    <MESSAGE value="start move large methods over - move assignStartToCurrent over to scanState" />
+    <MESSAGE value="make current private" />
+    <MESSAGE value="make source private" />
+    <option name="LAST_COMMIT_MESSAGE" value="make source private" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

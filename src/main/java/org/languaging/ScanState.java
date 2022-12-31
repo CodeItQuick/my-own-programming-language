@@ -50,4 +50,15 @@ public class ScanState {
     int retrieveLineNumber() {
         return line;
     }
+
+    String extractIdentifier() {
+        while (Scanner.isAlphaNumeric(peek())) advance();
+
+/* Scanning identifier < Scanning keyword-type
+    addToken(IDENTIFIER);
+*/
+//> keyword-type
+        String text = source.substring(start, current);
+        return text;
+    }
 }

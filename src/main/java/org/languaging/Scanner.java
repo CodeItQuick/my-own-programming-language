@@ -131,18 +131,13 @@ class Scanner {
     //< scan-token
 //> identifier
     private void identifier() {
-        while (isAlphaNumeric(scanState.peek())) scanState.advance();
-
-/* Scanning identifier < Scanning keyword-type
-    addToken(IDENTIFIER);
-*/
-//> keyword-type
-        String text = scanState.source.substring(scanState.start, scanState.current);
+        String text = scanState.extractIdentifier();
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
         addToken(type);
 //< keyword-type
     }
+
     //< identifier
 //> number
     private void number() {
@@ -182,18 +177,18 @@ class Scanner {
 
     //< peek-next
 //> is-alpha
-    private boolean isAlpha(char c) {
+    public static boolean isAlpha(char c) {
         return (c >= 'a' && c <= 'z') ||
                 (c >= 'A' && c <= 'Z') ||
                 c == '_';
     }
 
-    private boolean isAlphaNumeric(char c) {
+    public static boolean isAlphaNumeric(char c) {
         return isAlpha(c) || isDigit(c);
     }
     //< is-alpha
 //> is-digit
-    private boolean isDigit(char c) {
+    public static boolean isDigit(char c) {
         return c >= '0' && c <= '9';
     } // [is-digit]
 

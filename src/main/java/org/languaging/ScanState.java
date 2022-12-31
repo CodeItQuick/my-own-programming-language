@@ -1,7 +1,7 @@
 package org.languaging;
 
 public class ScanState {
-    public int current = 0;
+    private int current = 0;
     public String source;
     public int start = 0;
     public int line = 1;

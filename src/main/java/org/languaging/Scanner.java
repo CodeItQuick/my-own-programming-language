@@ -148,7 +148,7 @@ class Scanner {
         while (isDigit(scanState.peek())) scanState.advance();
 
         // Look for a fractional part.
-        if (scanState.peek() == '.' && isDigit(peekNext())) {
+        if (scanState.peek() == '.' && isDigit(scanState.peekNext())) {
             // Consume the "."
             scanState.advance();
 
@@ -179,12 +179,6 @@ class Scanner {
         addToken(STRING, value);
     }
 
-    //< peek
-//> peek-next
-    private char peekNext() {
-        if (scanState.current + 1 >= scanState.source.length()) return '\0';
-        return scanState.source.charAt(scanState.current + 1);
-    } // [peek-next]
     //< peek-next
 //> is-alpha
     private boolean isAlpha(char c) {

@@ -32,4 +32,11 @@ public class ScanState {
         current++;
         return true;
     }
+
+    //< match
+//> peek
+    char peek() {
+        if (isAtEnd()) return '\0';
+        return source.charAt(current);
+    }
 }

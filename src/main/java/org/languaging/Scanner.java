@@ -84,7 +84,7 @@ class Scanner {
             case '/':
                 if (scanState.match('/')) {
                     // A comment goes until the end of the scanState.line.
-                    while (peek() != '\n' && !scanState.isAtEnd()) scanState.advance();
+                    while (scanState.peek() != '\n' && !scanState.isAtEnd()) scanState.advance();
                 } else {
                     addToken(SLASH);
                 }
@@ -130,7 +130,7 @@ class Scanner {
     //< scan-token
 //> identifier
     private void identifier() {
-        while (isAlphaNumeric(peek())) scanState.advance();
+        while (isAlphaNumeric(scanState.peek())) scanState.advance();
 
 /* Scanning identifier < Scanning keyword-type
     addToken(IDENTIFIER);
@@ -145,14 +145,14 @@ class Scanner {
     //< identifier
 //> number
     private void number() {
-        while (isDigit(peek())) scanState.advance();
+        while (isDigit(scanState.peek())) scanState.advance();
 
         // Look for a fractional part.
-        if (peek() == '.' && isDigit(peekNext())) {
+        if (scanState.peek() == '.' && isDigit(peekNext())) {
             // Consume the "."
             scanState.advance();
 
-            while (isDigit(peek())) scanState.advance();
+            while (isDigit(scanState.peek())) scanState.advance();
         }
 
         addToken(NUMBER,
@@ -161,8 +161,8 @@ class Scanner {
     //< number
 //> string
     private void string() {
-        while (peek() != '"' && !scanState.isAtEnd()) {
-            if (peek() == '\n') scanState.line++;
+        while (scanState.peek() != '"' && !scanState.isAtEnd()) {
+            if (scanState.peek() == '\n') scanState.line++;
             scanState.advance();
         }
 
@@ -179,12 +179,6 @@ class Scanner {
         addToken(STRING, value);
     }
 
-    //< match
-//> peek
-    private char peek() {
-        if (scanState.isAtEnd()) return '\0';
-        return scanState.source.charAt(scanState.current);
-    }
     //< peek
 //> peek-next
     private char peekNext() {

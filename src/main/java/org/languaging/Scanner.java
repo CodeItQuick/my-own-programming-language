@@ -141,19 +141,12 @@ class Scanner {
     //< identifier
 //> number
     private void number() {
-        while (isDigit(scanState.peek())) scanState.advance();
-
-        // Look for a fractional part.
-        if (scanState.peek() == '.' && isDigit(scanState.peekNext())) {
-            // Consume the "."
-            scanState.advance();
-
-            while (isDigit(scanState.peek())) scanState.advance();
-        }
+        scanState.extractDigit();
 
         addToken(NUMBER,
                 Double.parseDouble(scanState.source.substring(scanState.start, scanState.current)));
     }
+
     //< number
 //> string
     private void string() {

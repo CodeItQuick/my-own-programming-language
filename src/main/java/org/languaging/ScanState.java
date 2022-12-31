@@ -61,4 +61,16 @@ public class ScanState {
         String text = source.substring(start, current);
         return text;
     }
+
+    void extractDigit() {
+        while (Scanner.isDigit(peek())) advance();
+
+        // Look for a fractional part.
+        if (peek() == '.' && Scanner.isDigit(peekNext())) {
+            // Consume the "."
+            advance();
+
+            while (Scanner.isDigit(peek())) advance();
+        }
+    }
 }

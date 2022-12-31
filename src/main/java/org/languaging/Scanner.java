@@ -150,21 +150,8 @@ class Scanner {
     //< number
 //> string
     private void string() {
-        while (scanState.peek() != '"' && !scanState.isAtEnd()) {
-            if (scanState.peek() == '\n') scanState.line++;
-            scanState.advance();
-        }
-
-        if (scanState.isAtEnd()) {
-            Lox.error(scanState.line, "Unterminated string.");
-            return;
-        }
-
-        // The closing ".
-        scanState.advance();
-
-        // Trim the surrounding quotes.
-        String value = scanState.source.substring(scanState.start + 1, scanState.current - 1);
+        String value = scanState.extractString();
+        if (value == null) return;
         addToken(STRING, value);
     }
 

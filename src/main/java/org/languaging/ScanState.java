@@ -77,4 +77,23 @@ public class ScanState {
     String retrieveSubstring() {
         return source.substring(start, current);
     }
+
+    String extractString() {
+        while (peek() != '"' && !isAtEnd()) {
+            if (peek() == '\n') line++;
+            advance();
+        }
+
+        if (isAtEnd()) {
+            Lox.error(line, "Unterminated string.");
+            return null;
+        }
+
+        // The closing ".
+        advance();
+
+        // Trim the surrounding quotes.
+        String value = source.substring(start + 1, current - 1);
+        return value;
+    }
 }

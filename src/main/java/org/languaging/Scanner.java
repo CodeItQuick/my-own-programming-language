@@ -54,7 +54,7 @@ class Scanner {
     //< scan-tokens
 //> scan-token
     void scanToken() {
-        char c = advance();
+        char c = scanState.advance();
         switch (c) {
             case '(': addToken(LEFT_PAREN); break;
             case ')': addToken(RIGHT_PAREN); break;
@@ -84,7 +84,7 @@ class Scanner {
             case '/':
                 if (match('/')) {
                     // A comment goes until the end of the scanState.line.
-                    while (peek() != '\n' && !isAtEnd()) advance();
+                    while (peek() != '\n' && !isAtEnd()) scanState.advance();
                 } else {
                     addToken(SLASH);
                 }
@@ -130,7 +130,7 @@ class Scanner {
     //< scan-token
 //> identifier
     private void identifier() {
-        while (isAlphaNumeric(peek())) advance();
+        while (isAlphaNumeric(peek())) scanState.advance();
 
 /* Scanning identifier < Scanning keyword-type
     addToken(IDENTIFIER);
@@ -145,14 +145,14 @@ class Scanner {
     //< identifier
 //> number
     private void number() {
-        while (isDigit(peek())) advance();
+        while (isDigit(peek())) scanState.advance();
 
         // Look for a fractional part.
         if (peek() == '.' && isDigit(peekNext())) {
             // Consume the "."
-            advance();
+            scanState.advance();
 
-            while (isDigit(peek())) advance();
+            while (isDigit(peek())) scanState.advance();
         }
 
         addToken(NUMBER,
@@ -163,7 +163,7 @@ class Scanner {
     private void string() {
         while (peek() != '"' && !isAtEnd()) {
             if (peek() == '\n') scanState.line++;
-            advance();
+            scanState.advance();
         }
 
         if (isAtEnd()) {
@@ -172,7 +172,7 @@ class Scanner {
         }
 
         // The closing ".
-        advance();
+        scanState.advance();
 
         // Trim the surrounding quotes.
         String value = scanState.source.substring(scanState.start + 1, scanState.current - 1);
@@ -219,11 +219,6 @@ class Scanner {
 //> is-at-end
     boolean isAtEnd() {
         return scanState.current >= scanState.source.length();
-    }
-    //< is-at-end
-//> advance-and-add-token
-    private char advance() {
-        return scanState.source.charAt(scanState.current++);
     }
 
     private void addToken(TokenType type) {

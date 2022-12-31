@@ -144,7 +144,7 @@ class Scanner {
         scanState.extractDigit();
 
         addToken(NUMBER,
-                Double.parseDouble(scanState.source.substring(scanState.start, scanState.current)));
+                Double.parseDouble(scanState.retrieveSubstring()));
     }
 
     //< number
@@ -190,7 +190,7 @@ class Scanner {
     }
 
     private void addToken(TokenType type, Object literal) {
-        String text = scanState.source.substring(scanState.start, scanState.current);
+        String text = scanState.retrieveSubstring();
         tokens.add(new Token(type, text, literal, scanState.line));
     }
 

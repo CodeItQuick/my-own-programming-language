@@ -73,4 +73,8 @@ public class ScanState {
             while (Scanner.isDigit(peek())) advance();
         }
     }
+
+    String retrieveSubstring() {
+        return source.substring(start, current);
+    }
 }

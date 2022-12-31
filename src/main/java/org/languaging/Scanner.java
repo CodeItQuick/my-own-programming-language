@@ -48,7 +48,7 @@ class Scanner {
             scanToken();
         }
 
-        tokens.add(new Token(EOF, "", null, scanState.line));
+        tokens.add(new Token(EOF, "", null, scanState.retrieveLineNumber()));
         return tokens;
     }
 
@@ -100,7 +100,7 @@ class Scanner {
                 break;
 
             case '\n':
-                scanState.line++;
+                scanState.advanceLineNumber();
                 break;
 //< whitespace
 //> string-scanState.start
@@ -179,7 +179,7 @@ class Scanner {
 
     private void addToken(TokenType type, Object literal) {
         String text = scanState.retrieveSubstring();
-        tokens.add(new Token(type, text, literal, scanState.line));
+        tokens.add(new Token(type, text, literal, scanState.retrieveLineNumber()));
     }
 
     public List<Token> retrieveTokens() {

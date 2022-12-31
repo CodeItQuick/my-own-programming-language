@@ -4,7 +4,7 @@ public class ScanState {
     private int current = 0;
     private String source;
     private int start = 0;
-    public int line = 1;
+    private int line = 1;
 
     public ScanState(String source) {
 
@@ -99,5 +99,9 @@ public class ScanState {
 
     void assignStartToCurrent() {
         start = current;
+    }
+
+    void advanceLineNumber() {
+        line++;
     }
 }

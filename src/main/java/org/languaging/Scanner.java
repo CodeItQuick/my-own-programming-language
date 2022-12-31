@@ -33,7 +33,7 @@ class Scanner {
     }
     //< keyword-map
     private final List<Token> tokens = new ArrayList<>();
-    private final ScanState scanState;
+    final ScanState scanState;
     //> scan-state
 //< scan-state
 
@@ -42,7 +42,7 @@ class Scanner {
     }
     //> scan-tokens
     List<Token> scanTokens() {
-        while (!isAtEnd()) {
+        while (!scanState.isAtEnd()) {
             // We are at the beginning of the next lexeme.
             scanState.start = scanState.current;
             scanToken();
@@ -84,7 +84,7 @@ class Scanner {
             case '/':
                 if (match('/')) {
                     // A comment goes until the end of the scanState.line.
-                    while (peek() != '\n' && !isAtEnd()) scanState.advance();
+                    while (peek() != '\n' && !scanState.isAtEnd()) scanState.advance();
                 } else {
                     addToken(SLASH);
                 }
@@ -161,12 +161,12 @@ class Scanner {
     //< number
 //> string
     private void string() {
-        while (peek() != '"' && !isAtEnd()) {
+        while (peek() != '"' && !scanState.isAtEnd()) {
             if (peek() == '\n') scanState.line++;
             scanState.advance();
         }
 
-        if (isAtEnd()) {
+        if (scanState.isAtEnd()) {
             Lox.error(scanState.line, "Unterminated string.");
             return;
         }
@@ -181,7 +181,7 @@ class Scanner {
     //< string
 //> match
     private boolean match(char expected) {
-        if (isAtEnd()) return false;
+        if (scanState.isAtEnd()) return false;
         if (scanState.source.charAt(scanState.current) != expected) return false;
 
         scanState.current++;
@@ -190,7 +190,7 @@ class Scanner {
     //< match
 //> peek
     private char peek() {
-        if (isAtEnd()) return '\0';
+        if (scanState.isAtEnd()) return '\0';
         return scanState.source.charAt(scanState.current);
     }
     //< peek
@@ -215,11 +215,6 @@ class Scanner {
     private boolean isDigit(char c) {
         return c >= '0' && c <= '9';
     } // [is-digit]
-    //< is-digit
-//> is-at-end
-    boolean isAtEnd() {
-        return scanState.current >= scanState.source.length();
-    }
 
     private void addToken(TokenType type) {
         addToken(type, null);

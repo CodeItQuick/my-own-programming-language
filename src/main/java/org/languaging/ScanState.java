@@ -16,4 +16,10 @@ public class ScanState {
     char advance() {
         return source.charAt(current++);
     }
+
+    //< is-digit
+//> is-at-end
+    boolean isAtEnd() {
+        return current >= source.length();
+    }
 }

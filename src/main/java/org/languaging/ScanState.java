@@ -3,7 +3,7 @@ package org.languaging;
 public class ScanState {
     private int current = 0;
     private String source;
-    public int start = 0;
+    private int start = 0;
     public int line = 1;
 
     public ScanState(String source) {

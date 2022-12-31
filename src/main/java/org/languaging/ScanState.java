@@ -96,4 +96,8 @@ public class ScanState {
         String value = source.substring(start + 1, current - 1);
         return value;
     }
+
+    void assignStartToCurrent() {
+        start = current;
+    }
 }

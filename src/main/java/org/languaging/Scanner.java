@@ -44,13 +44,14 @@ class Scanner {
     List<Token> scanTokens() {
         while (!scanState.isAtEnd()) {
             // We are at the beginning of the next lexeme.
-            scanState.start = scanState.current;
+            scanState.assignStartToCurrent();
             scanToken();
         }
 
         tokens.add(new Token(EOF, "", null, scanState.line));
         return tokens;
     }
+
     //< scan-tokens
 //> scan-token
     void scanToken() {

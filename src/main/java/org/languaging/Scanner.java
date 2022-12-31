@@ -68,21 +68,21 @@ class Scanner {
             case '*': addToken(STAR); break; // [slash]
 //> two-char-tokens
             case '!':
-                addToken(match('=') ? BANG_EQUAL : BANG);
+                addToken(scanState.match('=') ? BANG_EQUAL : BANG);
                 break;
             case '=':
-                addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+                addToken(scanState.match('=') ? EQUAL_EQUAL : EQUAL);
                 break;
             case '<':
-                addToken(match('=') ? LESS_EQUAL : LESS);
+                addToken(scanState.match('=') ? LESS_EQUAL : LESS);
                 break;
             case '>':
-                addToken(match('=') ? GREATER_EQUAL : GREATER);
+                addToken(scanState.match('=') ? GREATER_EQUAL : GREATER);
                 break;
 //< two-char-tokens
 //> slash
             case '/':
-                if (match('/')) {
+                if (scanState.match('/')) {
                     // A comment goes until the end of the scanState.line.
                     while (peek() != '\n' && !scanState.isAtEnd()) scanState.advance();
                 } else {
@@ -178,15 +178,7 @@ class Scanner {
         String value = scanState.source.substring(scanState.start + 1, scanState.current - 1);
         addToken(STRING, value);
     }
-    //< string
-//> match
-    private boolean match(char expected) {
-        if (scanState.isAtEnd()) return false;
-        if (scanState.source.charAt(scanState.current) != expected) return false;
 
-        scanState.current++;
-        return true;
-    }
     //< match
 //> peek
     private char peek() {

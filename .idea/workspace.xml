@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="start move large methods over - move assignStartToCurrent over to scanState">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/languaging/ScanState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/languaging/ScanState.java" afterDir="false" />
-    </list>
+    <list default="true" id="7ff172e3-8e3c-481d-bdc0-a47c427b9be4" name="Changes" comment="make current private" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -407,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672496222089</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="make current private">
+      <created>1672496272182</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1672496272182</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +455,8 @@
     <MESSAGE value="start move large methods over - move retrieveSubstring over to scanState" />
     <MESSAGE value="start move large methods over - move extractSubstring over to scanState" />
     <MESSAGE value="start move large methods over - move assignStartToCurrent over to scanState" />
-    <option name="LAST_COMMIT_MESSAGE" value="start move large methods over - move assignStartToCurrent over to scanState" />
+    <MESSAGE value="make current private" />
+    <option name="LAST_COMMIT_MESSAGE" value="make current private" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
